@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import axios from "axios";
+import "./App.css";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	componentDidMount() {
+		axios
+			.get(
+				"https://api.themoviedb.org/3/movie/297802/videos?api_key=4d9dd02575caf8f6d545ff421762869e&language=en-US"
+			)
+			.then(result => {
+				console.log({ result });
+			})
+			.catch(error => {
+				console.log({ error });
+			});
+	}
+	render() {
+		return (
+			<div className="App">
+				<h1>Welcome to react redux set up boiler plates</h1>
+			</div>
+		);
+	}
 }
 
 export default App;
