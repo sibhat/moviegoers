@@ -1,29 +1,38 @@
 import React, { Component } from "react";
 // import axios from "axios";
 import "./App.css";
+import DetailContainer from "./feature/detail/container";
 import ListContainer from "./feature/list/container";
+import Nav from "./feature/nav/presentational";
+import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
-	// componentDidMount() {
-	// 	axios
-	// 		.get(
-	// 			"https://api.themoviedb.org/3/movie/297802/videos?api_key=" +
-	// 				process.env.MOVIEDB_API +
-	// 				"e&language=en-US"
-	// 		)
-	// 		.then(result => {
-	// 			console.log({ result });
-	// 		})
-	// 		.catch(error => {
-	// 			console.log({ error });
-	// 		});
-	// }
 	render() {
 		return (
-			// <div className="App">
-			// 	<h1>Welcome to react redux set up boiler plates</h1>
-			// </div>
-			<ListContainer />
+			<div className="layout">
+				<Nav />
+
+				<Switch>
+					<Route
+						exact
+						path="/nowplaying"
+						render={props => (
+							<ListContainer {...props} status="now_playing" />
+						)}
+					/>
+					<Route
+						exact
+						path="/popular"
+						render={props => (
+							<ListContainer {...props} status="popular" />
+						)}
+					/>
+					<Route path="/movies/:id" component={DetailContainer} />
+				</Switch>
+				<div style={{ textAlign: "center" }}>
+					Sibhat Design ©2018 Created by Ant UED
+				</div>
+			</div>
 		);
 	}
 }

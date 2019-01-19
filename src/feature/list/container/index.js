@@ -8,7 +8,7 @@ class ListContainer extends Component {
 		this.state = {};
 	}
 	componentDidMount() {
-		this.props.getMovieList();
+		this.props.getMovieList(this.props.status);
 	}
 	render() {
 		// console.log();
@@ -16,7 +16,7 @@ class ListContainer extends Component {
 	}
 }
 const MapPropsToState = state => ({
-	data: state.movies
+	data: state.list.movies
 });
 export default connect(
 	MapPropsToState,

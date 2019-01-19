@@ -6,10 +6,10 @@ const movieListHandler = movies => ({
 	payload: movies
 });
 
-export const getMovieList = () => dispatch => {
+export const getMovieList = status => dispatch => {
 	axios
 		.get(
-			`https://api.themoviedb.org/3/movie/now_playing?api_key=${
+			`https://api.themoviedb.org/3/movie/${status}?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
 			}&language=en-US&page=3`
 		)
