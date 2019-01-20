@@ -7,14 +7,16 @@ import Tab from "@material-ui/core/Tab";
 const useStyles = makeStyles({
 	root: {
 		flexGrow: 1,
-		background: "#3f4ebc5c",
+		// backgroundImage: "linear-gradient(#ffffff0d, #fafafa 50%)",
+		// borderImage: "linear-gradient(to right, #0099CC 0%, #F27280 100%)",
+		padding: 10,
 		width: "100vw",
 		position: "fixed",
 		bottom: 0,
 		color: "#fafafa"
 	},
 	tabs: {
-		background: "#ffffff7d",
+		background: "#ffffffeb",
 		borderRadius: "1px 40px",
 		margin: "10px 10px"
 	}

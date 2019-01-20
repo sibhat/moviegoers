@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Card from "@material-ui/core/Card";
+import { makeStyles } from "@material-ui/styles";
+
+import {
+	Card,
+	GridList,
+	Grid,
+	GridListTile,
+	GridListTileBar
+} from "@material-ui/core";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,36 +16,69 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 
 const styles = {
-	card: {
-		width: 400,
-		margin: "20px auto"
-	},
-	flex: {
+	root: {
 		display: "flex",
-		justifyContent: "space-between",
+		flexWrap: "wrap",
+		justifyContent: "space-around",
+		overflow: "scroll",
+		flexDirection: "column",
 		width: "100%",
-		flexWrap: "wrap"
+		height: "200px",
+		position: "relative",
+		top: -10
+		// backgroundColor: theme.palette.background.paper,
 	},
-	actions: {
-		display: "flex"
+	card: {
+		width: 200,
+		height: "100%",
+		margin: "0 2px",
+		position: "relative",
+		cursor: "pointer"
 	},
-	expand: {
-		transform: "rotate(0deg)",
-		marginLeft: "auto"
+	rightSideNav: {
+		width: 60,
+		position: "fixed",
+		// backgroundImage:
+		// 	"linear-gradient(to right, rgba(255, 255, 255, 0), rgb(250, 250, 250) 70%)",
+		right: 0,
+		height: 300,
+		bottom: "24%",
+		zIndex: 10000000000000
 	},
-	expandOpen: {
-		transform: "rotate(180deg)"
+	leftSideNav: {
+		width: 60,
+		position: "fixed",
+		// backgroundImage:
+		// "linear-gradient(to left, rgba(255, 255, 255, 0), rgb(250, 250, 250) 70%)",
+		left: 0,
+		bottom: "24%",
+		height: 300,
+		zIndex: 10000000000000
+	},
+	img: {
+		width: "100%",
+		position: "absolute",
+		height: "100%",
+		width: "100%",
+		top: 0
 	}
 };
 
 const index = props => {
+	// const classes = styles();
+
 	if (!props.data.results) {
 		return <h1>waiting</h1>;
 	}
 	return (
-		<div style={styles.flex}>
+		<div style={styles.root}>
+			<div style={styles.rightSideNav} />
 			{props.data.results.map(movie => (
-				<Card key={movie.id} style={styles.card}>
+				<Card
+					style={styles.card}
+					key={movie.id}
+					onClick={() => props.movieDetailHandler(movie.id)}
+				>
 					<CardHeader
 						action={
 							<IconButton>
@@ -47,12 +88,18 @@ const index = props => {
 							</IconButton>
 						}
 					/>
-					<CardMedia image={movie.photo} title="Paella dish" />
+					<img
+						style={styles.img}
+						src={`${props.baseUrl}/${props.size}${
+							movie.poster_path
+						}`}
+					/>
 					<CardContent>
 						<Typography component="p">{movie.overview}</Typography>
 					</CardContent>
 				</Card>
 			))}
+			<div style={styles.leftSideNav} />
 		</div>
 	);
 };

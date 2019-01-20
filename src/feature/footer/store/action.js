@@ -10,7 +10,7 @@ export const listenCategory = choice => dispatch => {
 	dispatch({ type: `REQUEST ${choice} SEND` });
 	axios
 		.get(
-			`https://api.themoviedb.org/3/movie/${choice}?api_key=${
+			`https://api.themoviedb.org/3/movie/${choice}/videos?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
 			}&language=en-US&page=3`
 		)

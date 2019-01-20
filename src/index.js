@@ -6,15 +6,24 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import configureStore from "./reducer";
 import { BrowserRouter as Router } from "react-router-dom";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const store = configureStore();
+const theme = createMuiTheme({
+	palette: {
+		type: "dark"
+	}
+});
 
 ReactDOM.render(
-	<Provider store={store}>
-		<Router>
-			<App />
-		</Router>
-	</Provider>,
+	<MuiThemeProvider theme={theme}>
+		<Provider store={store}>
+			<Router>
+				<App />
+			</Router>
+		</Provider>
+		,
+	</MuiThemeProvider>,
 	document.getElementById("root")
 );
 

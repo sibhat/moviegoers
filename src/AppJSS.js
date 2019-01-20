@@ -62,7 +62,7 @@ export const styles = theme => ({
 	appBarSpacer: theme.mixins.toolbar,
 	content: {
 		flexGrow: 1,
-		padding: theme.spacing.unit * 3,
+		// paddingTop: theme.spacing.unit * 3,
 		height: "100vh",
 		overflow: "auto"
 	},
@@ -74,5 +74,10 @@ export const styles = theme => ({
 	},
 	h5: {
 		marginBottom: theme.spacing.unit * 2
+	},
+	main: {
+		width: "100%",
+		height: "500px",
+		marginTop: "40px"
 	}
 });
