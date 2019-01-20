@@ -16,13 +16,13 @@ class ListContainer extends Component {
 	};
 
 	render() {
-		// console.log();
+		console.log(data);
 		let { data, size, baseUrl } = this.props;
 		if (!this.props.data) return <h1>wating</h1>;
 		return (
 			<>
 				<List
-					data={data}
+					data={data[this.props.status]}
 					size={size}
 					baseUrl={baseUrl}
 					movieDetailHandler={this.movieDetailHandler}
@@ -31,11 +31,19 @@ class ListContainer extends Component {
 		);
 	}
 }
-const MapPropsToState = state => ({
-	data: state.list.movies,
-	size: state.list.size[4],
-	baseUrl: state.list.base_url
-});
+const MapPropsToState = state => {
+	let data = {
+		popular: state.list.popular_movies,
+		top_rated: state.list.topRated_movies,
+		upcoming: state.list.upComing_movies,
+		now_playing: state.list.nowPlaying_movies
+	};
+	return {
+		data,
+		size: state.list.size[4],
+		baseUrl: state.list.base_url
+	};
+};
 export default connect(
 	MapPropsToState,
 	{ getMovieList, listenCategory }

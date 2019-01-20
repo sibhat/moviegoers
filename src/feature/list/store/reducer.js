@@ -8,7 +8,7 @@ const initialState = {
 	latest_movies: [],
 	nowPlaying_movies: [],
 	popular_movies: [],
-	TopRated_movies: [],
+	topRated_movies: [],
 	upComing_movies: []
 };
 export default (state = initialState, action) => {
@@ -31,7 +31,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				requesting: false,
-				TopRated_movies: action.payload,
+				topRated_movies: action.payload,
 				request: true
 			};
 		case actionType.LATEST:

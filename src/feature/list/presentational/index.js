@@ -1,16 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/styles";
 
-import {
-	Card,
-	GridList,
-	Grid,
-	GridListTile,
-	GridListTileBar
-} from "@material-ui/core";
+import { Card } from "@material-ui/core";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";

@@ -1,12 +1,12 @@
 // import React, { Component } from "react";
 // // import axios from "axios";
 // import "./App.css";
-import DetailContainer from "./feature/detail/container";
+// import DetailContainer from "./feature/detail/container";
 import ListContainer from "./feature/list/container";
 import FooterContainer from "./feature/footer/container";
 import Main from "./feature/main/container";
-import Nav from "./feature/nav/presentational";
-import { Route } from "react-router-dom";
+// import Nav from "./feature/nav/presentational";
+// import { Route } from "react-router-dom";
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -45,12 +45,12 @@ class App extends React.Component {
 
 				<main className={classes.content}>
 					<Main className={classes.main} />
-					{/* <ListContainer status="now_playing" /> */}
+					<ListContainer status="now_playing" />
 
 					<ListContainer status="top_rated" />
 					{/* <ListContainer status="latest" /> */}
-					{/* <ListContainer status="popular" /> */}
-					{/* <ListContainer status="upcoming" /> */}
+					<ListContainer status="popular" />
+					<ListContainer status="upcoming" />
 
 					{/* <Route path="/movies/:id" component={DetailContainer} /> */}
 				</main>

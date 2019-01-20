@@ -10,13 +10,13 @@ class FooterContainer extends Component {
 				id: 0,
 				name: "All"
 			},
-			Comedy: {
+			TV: {
 				id: 1,
-				name: "Comedy"
+				name: "TV"
 			},
-			Drama: {
+			Movies: {
 				id: 2,
-				name: "Drama"
+				name: "Movies"
 			},
 			currentChoice: 0
 		};

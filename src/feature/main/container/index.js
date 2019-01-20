@@ -24,7 +24,7 @@ class MainContainer extends Component {
 	}
 }
 const MapPropsToState = state => ({
-	data: state.list.movies,
+	data: state.list.nowPlaying_movies,
 	currentChoiceMovie: state.trailer.currentChoiceMovie
 });
 export default connect(

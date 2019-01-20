@@ -11,10 +11,20 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 const store = configureStore();
 const theme = createMuiTheme({
 	palette: {
+		background: {
+			default: "#f44336",
+			paper: "#424242"
+		},
+		primary: {
+			contrastText: "#fff",
+			dark: "#303f9f",
+			light: "#7986cb",
+			main: "#f44336"
+		},
 		type: "dark"
 	}
 });
-
+console.log("theme", theme);
 ReactDOM.render(
 	<MuiThemeProvider theme={theme}>
 		<Provider store={store}>
@@ -22,7 +32,6 @@ ReactDOM.render(
 				<App />
 			</Router>
 		</Provider>
-		,
 	</MuiThemeProvider>,
 	document.getElementById("root")
 );
