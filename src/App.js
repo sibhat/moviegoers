@@ -3,6 +3,7 @@
 // import "./App.css";
 import DetailContainer from "./feature/detail/container";
 import ListContainer from "./feature/list/container";
+import FooterContainer from "./feature/footer/container";
 import Nav from "./feature/nav/presentational";
 import { Switch, Route } from "react-router-dom";
 import React from "react";
@@ -60,6 +61,7 @@ class App extends React.Component {
 						<Route path="/movies/:id" component={DetailContainer} />
 					</Switch>
 				</main>
+				<FooterContainer />
 			</div>
 		);
 	}

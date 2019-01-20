@@ -1,24 +1,50 @@
 import React, { Component } from "react";
-import { getMovieList } from "../store/action";
+import { listenCategory } from "../store/action";
 import { connect } from "react-redux";
-import List from "../presentational";
-class ListContainer extends Component {
+import Footer from "../presentational";
+class FooterContainer extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			All: {
+				id: 0,
+				name: "All"
+			},
+			Comedy: {
+				id: 1,
+				name: "Comedy"
+			},
+			Drama: {
+				id: 2,
+				name: "Drama"
+			},
+			currentChoice: 0
+		};
 	}
-	componentDidMount() {
-		this.props.getMovieList(this.props.status);
-	}
+	listenCategoryHanlder = choice => {
+		this.setState(
+			prev => ({
+				currentChoice: prev[choice]["id"]
+			}),
+			() => {
+				this.props.listenCategory(choice);
+			}
+		);
+	};
 	render() {
-		// console.log();
-		return <List data={this.props.data} />;
+		let choices = this.state;
+		choices = Object.entries(choices);
+		return (
+			<Footer
+				listenCategoryHanlder={this.listenCategoryHanlder}
+				choices={choices}
+				currentChoice={this.state.currentChoice}
+			/>
+		);
 	}
 }
-const MapPropsToState = state => ({
-	data: state.list.movies
-});
+
 export default connect(
-	MapPropsToState,
-	{ getMovieList }
-)(ListContainer);
+	null,
+	{ listenCategory }
+)(FooterContainer);
