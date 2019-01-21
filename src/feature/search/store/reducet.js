@@ -4,6 +4,7 @@ const initialState = {
 	fetching: false,
 	fetch_succes: false,
 	fetch_error: false,
+	searchResultsMulti: [],
 	searchResultsTv: [],
 	searchResultsMovies: []
 };
@@ -17,6 +18,13 @@ export default (state = initialState, action) => {
 				fetching: false,
 				fetch_succes: true,
 				searchResultsTv: action.payload
+			};
+		case actionType.SEARCH_MULTI_FETCH:
+			return {
+				...state,
+				fetching: false,
+				fetch_succes: true,
+				searchResultsMulti: action.payload
 			};
 		case actionType.SEARCH_MOVIE_FETCH:
 			return {

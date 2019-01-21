@@ -1,17 +1,17 @@
 import axios from "axios";
 import * as actionType from "./actionType";
-let choices = {
-	now_playing: "NOW_PLAYING",
-	top_rated: "TOP_RATED",
-	latest: "LATEST",
-	popular: "POPULAR",
-	upcoming: "UPCOMING",
-	airing_today: "AIRINGTODAY",
-	on_the_air: "ONTHEAIR"
+let connectOptionWithActionType = {
+	now_playing: actionType.NOW_PLAYING,
+	top_rated: actionType.TOP_RATED,
+	latest: actionType.LATEST,
+	popular: actionType.POPULAR,
+	upcoming: actionType.UPCOMING,
+	airing_today: actionType.AIRING_TODAY,
+	on_the_air: actionType.ON_THE_AIR
 };
 
 const movieListHandler = (action, movies) => ({
-	type: action,
+	type: connectOptionWithActionType[action],
 	payload: movies
 });
 const configHandler = movies => ({
@@ -45,7 +45,7 @@ export const getMovieList = (option = "movie", url) => dispatch => {
 		)
 		.then(result => {
 			dispatch({ type: `REQUEST ${url} SUCCESSED` });
-			dispatch(movieListHandler(choices[url], result.data));
+			dispatch(movieListHandler(url, result.data));
 		})
 		.catch(() => {
 			dispatch({ type: `REQUEST ${url} FAILED` });

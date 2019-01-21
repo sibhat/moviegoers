@@ -38,7 +38,14 @@ export const styles = theme => ({
 		display: "none"
 	},
 	title: {
-		flexGrow: 1
+		flexGrow: 1,
+		color: "#fff",
+		fontSize: "1.25rem",
+		fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+		fontWeight: 500,
+		lineHeight: 1.6,
+		letterSpacing: "0.0075em",
+		textDecoration: "none"
 	},
 	drawerPaper: {
 		position: "relative",
@@ -63,7 +70,8 @@ export const styles = theme => ({
 	appBarSpacer: theme.mixins.toolbar,
 	content: {
 		flexGrow: 1,
-		// paddingTop: theme.spacing.unit * 3,
+		paddingTop: theme.spacing.unit * 8,
+		paddingBottom: theme.spacing.unit * 6,
 		height: "100vh",
 		overflow: "auto"
 	},

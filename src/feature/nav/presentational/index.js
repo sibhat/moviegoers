@@ -11,7 +11,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Search from "../../search/container";
 import classNames from "classnames";
-
+import { Link } from "react-router-dom";
 const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
 	return (
 		<>
@@ -34,15 +34,10 @@ const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography
-						component="h1"
-						variant="h6"
-						color="inherit"
-						noWrap
-						className={classes.title}
-					>
+
+					<Link to="/" className={classes.title}>
 						MovieGoers
-					</Typography>
+					</Link>
 					<Search classes={classes} />
 				</Toolbar>
 			</AppBar>

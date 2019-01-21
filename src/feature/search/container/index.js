@@ -17,7 +17,7 @@ class index extends Component {
 	};
 	onSubmit = e => {
 		e.preventDefault();
-		this.props.search("movie", this.state.searchItem);
+		this.props.search("multi", this.state.searchItem);
 		this.props.history.push("/search");
 	};
 	render() {

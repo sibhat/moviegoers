@@ -2,6 +2,7 @@ import axios from "axios";
 import * as actionType from "./actionType";
 
 const connectOptionToAction = {
+	multi: actionType.SEARCH_MULTI_FETCH,
 	movie: actionType.SEARCH_MOVIE_FETCH,
 	tv: actionType.SEARCH_TV_FETCH
 };

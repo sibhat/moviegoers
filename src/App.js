@@ -4,6 +4,7 @@
 // import DetailContainer from "./feature/detail/container";
 import ListContainer from "./feature/list/container";
 import FooterContainer from "./feature/footer/container";
+import GridListForSearch from "./feature/list/container/GridListForSearch";
 import Main from "./feature/main/container";
 import Nav from "./feature/nav/presentational";
 import { Route } from "react-router-dom";
@@ -60,17 +61,24 @@ class App extends React.Component {
 				/>
 
 				<main className={classes.content}>
-					<Main
-						className={classes.main}
-						option={option}
-						currentChoice={currentChoice}
+					<Route
+						path="/"
+						exact
+						render={props => (
+							<>
+								<Main
+									className={classes.main}
+									option={option}
+									currentChoice={currentChoice}
+								/>
+
+								{allOption}
+							</>
+						)}
 					/>
-
-					{allOption}
-
 					<Route
 						path="/search"
-						render={props => <ListContainer option={"tv"} />}
+						render={props => <GridListForSearch {...props} />}
 					/>
 				</main>
 				<FooterContainer />
