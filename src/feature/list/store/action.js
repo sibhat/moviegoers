@@ -33,21 +33,27 @@ export const config = () => dispatch => {
 			dispatch({ type: `REQUEST config FAILED` });
 		});
 };
-export const getMovieList = status => dispatch => {
-	dispatch({ type: `REQUEST ${status} SEND` });
+export const getMovieList = (category, option = "movie") => dispatch => {
+	dispatch({ type: `REQUEST ${category} SEND` });
 	axios
 		.get(
-			`https://api.themoviedb.org/3/movie/${status}?api_key=${
+			`https://api.themoviedb.org/3/${option}/${category}?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
 			}&language=en-US&page=3`
 		)
 		.then(result => {
-			dispatch({ type: `REQUEST ${status} SUCCESSED` });
-			dispatch(movieListHandler(result.data, choices[status]));
+			dispatch({ type: `REQUEST ${category} SUCCESSED` });
+			dispatch(movieListHandler(result.data, choices[category]));
 		})
 		.catch(error => {
-			dispatch({ type: `REQUEST ${status} FAILED` });
+			dispatch({ type: `REQUEST ${category} FAILED` });
 
 			console.error("error dispatching movie list ", { error });
 		});
+};
+export const currentOptionHandler = id => dispatch => {
+	dispatch({
+		type: actionType.UPDATE_OPTION,
+		payload: id
+	});
 };

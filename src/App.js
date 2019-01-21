@@ -32,7 +32,16 @@ class App extends React.Component {
 
 	render() {
 		const { classes } = this.props;
-
+		let allOption;
+		if (!this.props.currentChoice) {
+			allOption = Object.entries(this.props.option).filter(
+				item => item[1].id !== 0 && item[1]
+			);
+			console.log(allOption);
+			allOption = allOption.map(option => (
+				<ListContainer option={option} />
+			));
+		}
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
@@ -45,12 +54,11 @@ class App extends React.Component {
 
 				<main className={classes.content}>
 					<Main className={classes.main} />
-					<ListContainer status="now_playing" />
-
-					<ListContainer status="top_rated" />
-					{/* <ListContainer status="latest" /> */}
-					<ListContainer status="popular" />
-					<ListContainer status="upcoming" />
+					{/* <ListContainer
+						category="now_playing"
+						option={this.props.option}
+					/> */}
+					{allOption}
 
 					{/* <Route path="/movies/:id" component={DetailContainer} /> */}
 				</main>
@@ -63,10 +71,16 @@ class App extends React.Component {
 App.propTypes = {
 	classes: PropTypes.object.isRequired
 };
-
+const DispatchStateToProps = state => {
+	let option = state.list.option;
+	return {
+		option,
+		currentChoice: state.list.option.currentChoice
+	};
+};
 export default withStyles(styles)(
 	connect(
-		null,
+		DispatchStateToProps,
 		{ config }
 	)(App)
 );

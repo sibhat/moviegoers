@@ -77,7 +77,6 @@ export const styles = theme => ({
 	},
 	main: {
 		width: "100%",
-		height: "500px",
-		marginTop: "40px"
+		height: "500px"
 	}
 });

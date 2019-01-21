@@ -1,23 +1,18 @@
 import React from "react";
-import { withTheme, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 
-import { Paper, AppBar } from "@material-ui/core";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import { Paper, Tabs, Tab } from "@material-ui/core";
 
-const useStyles = () => {
-	return {
-		root: {
-			width: "100vw",
-			position: "fixed",
-			bottom: 0
-		},
-		tabs: {
-			borderRadius: "1px 40px"
-		}
-	};
-};
-
+const useStyles = () => ({
+	root: {
+		width: "100vw",
+		position: "fixed",
+		bottom: 0
+	},
+	tabs: {
+		borderRadius: "1px 40px"
+	}
+});
 function Footer({ listenCategoryHanlder, choices, currentChoice, classes }) {
 	return (
 		<Paper className={classes.root}>
@@ -38,7 +33,7 @@ function Footer({ listenCategoryHanlder, choices, currentChoice, classes }) {
 								label={choice[0]}
 								className={classes.tabs}
 								onClick={() =>
-									listenCategoryHanlder(choice[1]["name"])
+									listenCategoryHanlder(choice[1]["id"])
 								}
 							/>
 						);

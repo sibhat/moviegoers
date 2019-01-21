@@ -1,13 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import { Card } from "@material-ui/core";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-
-const styles = {
+import {
+	Card,
+	CardHeader,
+	CardContent,
+	Typography,
+	IconButton
+} from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+let options = {
+	now_playing: "Now Playing",
+	top_rated: "Top Rated",
+	popular: "Popular",
+	upcoming: "upcoming"
+};
+const useStyles = theme => ({
 	root: {
 		display: "flex",
 		flexWrap: "wrap",
@@ -17,8 +24,14 @@ const styles = {
 		width: "100%",
 		height: "200px",
 		position: "relative",
-		top: -10
-		// backgroundColor: theme.palette.background.paper,
+		backgroundColor: theme.palette.background.paper
+	},
+	catagory: {
+		display: "inline-block",
+		// position: "absolute",
+		paddingLeft: 30,
+		zIndex: 100,
+		margin: 0
 	},
 	card: {
 		width: 200,
@@ -27,73 +40,57 @@ const styles = {
 		position: "relative",
 		cursor: "pointer"
 	},
-	rightSideNav: {
-		width: 60,
-		position: "fixed",
-		// backgroundImage:
-		// 	"linear-gradient(to right, rgba(255, 255, 255, 0), rgb(250, 250, 250) 70%)",
-		right: 0,
-		height: 300,
-		bottom: "24%",
-		zIndex: 10000000000000
-	},
-	leftSideNav: {
-		width: 60,
-		position: "fixed",
-		// backgroundImage:
-		// "linear-gradient(to left, rgba(255, 255, 255, 0), rgb(250, 250, 250) 70%)",
-		left: 0,
-		bottom: "24%",
-		height: 300,
-		zIndex: 10000000000000
-	},
 	img: {
 		width: "100%",
 		position: "absolute",
 		height: "100%",
-		width: "100%",
 		top: 0
 	}
-};
+});
 
-const index = props => {
-	// const classes = styles();
-
+function List(props) {
 	if (!props.data.results) {
 		return <h1>waiting</h1>;
 	}
+	let styles = props.classes;
 	return (
-		<div style={styles.root}>
-			<div style={styles.rightSideNav} />
-			{props.data.results.map(movie => (
-				<Card
-					style={styles.card}
-					key={movie.id}
-					onClick={() => props.movieDetailHandler(movie.id)}
-				>
-					<CardHeader
-						action={
-							<IconButton>
-								<Link to={`/movies/${movie.id}`}>
-									{movie.title}
-								</Link>
-							</IconButton>
-						}
-					/>
-					<img
-						style={styles.img}
-						src={`${props.baseUrl}/${props.size}${
-							movie.poster_path
-						}`}
-					/>
-					<CardContent>
-						<Typography component="p">{movie.overview}</Typography>
-					</CardContent>
-				</Card>
-			))}
-			<div style={styles.leftSideNav} />
-		</div>
+		<>
+			<Typography variant="h6" gutterBottom className={styles.catagory}>
+				{options[props.category]}
+			</Typography>
+			<div className={styles.root}>
+				{props.data.results.map(movie => (
+					<Card
+						className={styles.card}
+						key={movie.id}
+						onClick={() => props.movieDetailHandler(movie.id)}
+					>
+						<CardHeader
+							action={
+								<IconButton>
+									<Link to={`/movies/${movie.id}`}>
+										{movie.title}
+									</Link>
+								</IconButton>
+							}
+						/>
+						<img
+							className={styles.img}
+							alt="poster"
+							src={`${props.baseUrl}/${props.size}${
+								movie.poster_path
+							}`}
+						/>
+						<CardContent>
+							<Typography variant="body2">
+								{movie.overview}
+							</Typography>
+						</CardContent>
+					</Card>
+				))}
+			</div>
+		</>
 	);
-};
+}
 
-export default index;
+export default withStyles(useStyles)(List);

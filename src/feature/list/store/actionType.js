@@ -5,3 +5,4 @@ export const TOP_RATED = "TOP_RATED";
 export const LATEST = "LATEST";
 export const POPULAR = "POPULAR";
 export const UPCOMING = "UPCOMING";
+export const UPDATE_OPTION = "UPDATEOPTION";
