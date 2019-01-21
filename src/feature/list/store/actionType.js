@@ -6,3 +6,5 @@ export const LATEST = "LATEST";
 export const POPULAR = "POPULAR";
 export const UPCOMING = "UPCOMING";
 export const UPDATE_OPTION = "UPDATEOPTION";
+export const AIRING_TODAY = "AIRINGTODAY";
+export const ON_THE_AIR = "ONTHEAIR";

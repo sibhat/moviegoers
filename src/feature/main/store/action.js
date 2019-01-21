@@ -10,10 +10,10 @@ const categoryRequestHandler = data => ({
 	payload: data
 });
 
-export const getMovieDetail = id => dispatch => {
+export const getMovieDetail = (option, id) => dispatch => {
 	axios
 		.get(
-			`https://api.themoviedb.org/3/movie/${id}?api_key=${
+			`https://api.themoviedb.org/3/${option}/${id}?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
 			}&language=en-US&page=3`
 		)
@@ -26,11 +26,11 @@ export const getMovieDetail = id => dispatch => {
 		});
 };
 
-export const listenCategory = choice => dispatch => {
+export const listenCategory = (option, choice) => dispatch => {
 	dispatch({ type: `REQUEST movie ${choice} SEND` });
 	axios
 		.get(
-			`https://api.themoviedb.org/3/movie/${choice}/videos?api_key=${
+			`https://api.themoviedb.org/3/${option}/${choice}/videos?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
 			}&language=en-US&page=3`
 		)

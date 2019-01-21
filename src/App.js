@@ -5,8 +5,8 @@
 import ListContainer from "./feature/list/container";
 import FooterContainer from "./feature/footer/container";
 import Main from "./feature/main/container";
-// import Nav from "./feature/nav/presentational";
-// import { Route } from "react-router-dom";
+import Nav from "./feature/nav/presentational";
+import { Route } from "react-router-dom";
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -31,36 +31,47 @@ class App extends React.Component {
 	};
 
 	render() {
-		const { classes } = this.props;
+		let { classes, option, currentChoice } = this.props;
 		let allOption;
-		if (!this.props.currentChoice) {
-			allOption = Object.entries(this.props.option).filter(
-				item => item[1].id !== 0 && item[1]
+
+		if (!currentChoice) {
+			option = Object.entries(option).filter(
+				(item, index, arry) =>
+					item[1].id !== 0 && index !== arry.length - 1
 			);
-			console.log(allOption);
-			allOption = allOption.map(option => (
-				<ListContainer option={option} />
+			allOption = option.map(option => (
+				<ListContainer option={option[1]["name"]} key={option[1].id} />
 			));
+		} else {
+			allOption = (
+				<ListContainer option={option[currentChoice]["name"]} />
+			);
 		}
+
+		// console.log(option);
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
-				{/* <Nav
+				<Nav
 					classes={classes}
 					open={this.state.open}
 					handleDrawerOpen={this.handleDrawerOpen}
 					handleDrawerClose={this.handleDrawerClose}
-				/> */}
+				/>
 
 				<main className={classes.content}>
-					<Main className={classes.main} />
-					{/* <ListContainer
-						category="now_playing"
-						option={this.props.option}
-					/> */}
+					<Main
+						className={classes.main}
+						option={option}
+						currentChoice={currentChoice}
+					/>
+
 					{allOption}
 
-					{/* <Route path="/movies/:id" component={DetailContainer} /> */}
+					<Route
+						path="/search"
+						render={props => <ListContainer option={"tv"} />}
+					/>
 				</main>
 				<FooterContainer />
 			</div>
@@ -71,13 +82,10 @@ class App extends React.Component {
 App.propTypes = {
 	classes: PropTypes.object.isRequired
 };
-const DispatchStateToProps = state => {
-	let option = state.list.option;
-	return {
-		option,
-		currentChoice: state.list.option.currentChoice
-	};
-};
+const DispatchStateToProps = state => ({
+	option: state.list.option,
+	currentChoice: state.list.option.currentChoice
+});
 export default withStyles(styles)(
 	connect(
 		DispatchStateToProps,

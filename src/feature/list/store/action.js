@@ -5,10 +5,12 @@ let choices = {
 	top_rated: "TOP_RATED",
 	latest: "LATEST",
 	popular: "POPULAR",
-	upcoming: "UPCOMING"
+	upcoming: "UPCOMING",
+	airing_today: "AIRINGTODAY",
+	on_the_air: "ONTHEAIR"
 };
 
-const movieListHandler = (movies, action) => ({
+const movieListHandler = (action, movies) => ({
 	type: action,
 	payload: movies
 });
@@ -33,24 +35,24 @@ export const config = () => dispatch => {
 			dispatch({ type: `REQUEST config FAILED` });
 		});
 };
-export const getMovieList = (category, option = "movie") => dispatch => {
-	dispatch({ type: `REQUEST ${category} SEND` });
+export const getMovieList = (option = "movie", url) => dispatch => {
+	dispatch({ type: `REQUEST ${url} SEND` });
 	axios
 		.get(
-			`https://api.themoviedb.org/3/${option}/${category}?api_key=${
+			`https://api.themoviedb.org/3/${option}/${url}?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
 			}&language=en-US&page=3`
 		)
 		.then(result => {
-			dispatch({ type: `REQUEST ${category} SUCCESSED` });
-			dispatch(movieListHandler(result.data, choices[category]));
+			dispatch({ type: `REQUEST ${url} SUCCESSED` });
+			dispatch(movieListHandler(choices[url], result.data));
 		})
-		.catch(error => {
-			dispatch({ type: `REQUEST ${category} FAILED` });
-
-			console.error("error dispatching movie list ", { error });
+		.catch(() => {
+			dispatch({ type: `REQUEST ${url} FAILED` });
+			// console.error("error dispatching movie list ", { error });
 		});
 };
+
 export const currentOptionHandler = id => dispatch => {
 	dispatch({
 		type: actionType.UPDATE_OPTION,

@@ -30,7 +30,7 @@ function Footer({ listenCategoryHanlder, choices, currentChoice, classes }) {
 						return (
 							<Tab
 								key={choice[1]["id"]}
-								label={choice[0]}
+								label={choice[1]["name"]}
 								className={classes.tabs}
 								onClick={() =>
 									listenCategoryHanlder(choice[1]["id"])

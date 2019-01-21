@@ -50,13 +50,13 @@ const useStyles = theme => ({
 
 function List(props) {
 	if (!props.data.results) {
-		return <h1>waiting</h1>;
+		return <h1>waiting presentation {props.display}</h1>;
 	}
 	let styles = props.classes;
 	return (
 		<>
 			<Typography variant="h6" gutterBottom className={styles.catagory}>
-				{options[props.category]}
+				{props.display}
 			</Typography>
 			<div className={styles.root}>
 				{props.data.results.map(movie => (

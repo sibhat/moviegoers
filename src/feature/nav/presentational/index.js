@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-
+import Search from "../../search/container";
 import classNames from "classnames";
 
 const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
@@ -43,6 +43,7 @@ const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
 					>
 						MovieGoers
 					</Typography>
+					<Search classes={classes} />
 				</Toolbar>
 			</AppBar>
 			<Drawer

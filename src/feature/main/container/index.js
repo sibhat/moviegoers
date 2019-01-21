@@ -9,8 +9,20 @@ class MainContainer extends Component {
 	}
 	componentDidMount() {
 		setTimeout(() => {
-			if (this.props.data)
-				this.props.listenCategory(this.props.data.results[0]["id"]);
+			let { option, currentChoice } = this.props;
+
+			// console.log(option);
+			if (!currentChoice) {
+				this.props.listenCategory(
+					option[0][1]["name"].toLowerCase(),
+					this.props.data.results[0]["id"]
+				);
+			} else {
+				this.props.listenCategory(
+					option[1]["name"].toLowerCase(),
+					this.props.data.results[0]["id"]
+				);
+			}
 		}, 1000);
 	}
 
@@ -24,7 +36,7 @@ class MainContainer extends Component {
 	}
 }
 const MapPropsToState = state => ({
-	data: state.list.nowPlaying_movies,
+	data: state.list.top_rated,
 	currentChoiceMovie: state.trailer.currentChoiceMovie
 });
 export default connect(
