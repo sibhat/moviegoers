@@ -1,7 +1,7 @@
 import React from "react";
 import ListContainer from "./feature/list/container";
 import FooterContainer from "./feature/footer/container";
-import GenreList from "./feature/list/container/GenreList";
+// import GenreList from "./feature/list/container/GenreList";
 import GridListForSearch from "./feature/list/container/GridListForSearch";
 import Main from "./feature/main/container";
 import Nav from "./feature/nav/presentational";
@@ -70,7 +70,7 @@ class App extends React.Component {
 								/>
 
 								{allOption}
-								<GenreList />
+								{/* <GenreList /> */}
 							</>
 						)}
 					/>

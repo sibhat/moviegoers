@@ -18,7 +18,7 @@ class GridList extends Component {
 		this.props.listenCategory(this.props.option.toLowerCase(), movieId);
 	};
 	render() {
-		let { size, data, baseUrl, url, display } = this.props;
+		let { size, baseUrl, url, display } = this.props;
 		if (this.props.pending) return <h1>waiting</h1>;
 		return (
 			<List

@@ -1,19 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-	Card,
-	CardHeader,
-	CardContent,
-	Typography,
-	IconButton
-} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-let options = {
-	now_playing: "Now Playing",
-	top_rated: "Top Rated",
-	popular: "Popular",
-	upcoming: "upcoming"
-};
+import PoperContainer from "./PoperContainer";
+
 const useStyles = theme => ({
 	root: {
 		display: "flex",
@@ -45,6 +34,28 @@ const useStyles = theme => ({
 		position: "absolute",
 		height: "100%",
 		top: 0
+	},
+	title: {
+		display: "block",
+		fontSize: "26px",
+		// color: theme.palette.text.primary,
+		textDecoration: "none",
+		textAlign: "center",
+		fontWeight: "bold",
+		color: "#ff2925"
+	},
+	description: {
+		display: "block"
+	},
+	popper: {
+		width: 200,
+		padding: 20,
+		overflow: "scroll"
+	},
+	flex: {
+		display: "flex",
+		justifyContent: "space-evenly",
+		fontSize: "18px"
 	}
 });
 
@@ -60,33 +71,12 @@ function List(props) {
 			</Typography>
 			<div className={styles.root}>
 				{props.data.results.map(movie => (
-					<Card
-						className={styles.card}
+					<PoperContainer
+						movie={movie}
+						styles={styles}
+						{...props}
 						key={movie.id}
-						onClick={() => props.movieDetailHandler(movie.id)}
-					>
-						<CardHeader
-							action={
-								<IconButton>
-									<Link to={`/movies/${movie.id}`}>
-										{movie.title}
-									</Link>
-								</IconButton>
-							}
-						/>
-						<img
-							className={styles.img}
-							alt="poster"
-							src={`${props.baseUrl}/${props.size}${
-								movie.poster_path
-							}`}
-						/>
-						<CardContent>
-							<Typography variant="body2">
-								{movie.overview}
-							</Typography>
-						</CardContent>
-					</Card>
+					/>
 				))}
 			</div>
 		</>
