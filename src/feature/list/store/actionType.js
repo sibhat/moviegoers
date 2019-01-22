@@ -1,10 +1,14 @@
 export const LIST_MOVIES = "LIST_MOVIES";
 export const CONFIG_DB = "CONFIGDB";
 export const NOW_PLAYING = "NOW_PLAYING";
-export const TOP_RATED = "TOP_RATED";
+export const TOP_RATED_TV = "TOP_RATEDTV";
+export const TOP_RATED_MOVIE = "TOP_RATEDMOVIE";
 export const LATEST = "LATEST";
-export const POPULAR = "POPULAR";
+export const POPULAR_MOVIE = "POPULARMOVIE";
+export const POPULAR_TV = "POPULARTV";
 export const UPCOMING = "UPCOMING";
 export const UPDATE_OPTION = "UPDATEOPTION";
 export const AIRING_TODAY = "AIRINGTODAY";
 export const ON_THE_AIR = "ONTHEAIR";
+export const GENRE_TV_LIST = "GENRETVLIST";
+export const GENRE_MOVIE_LIST = "GENREMOVIELIST";

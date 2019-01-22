@@ -12,6 +12,7 @@ const ListContainer = props => {
 			option={option}
 			id={list.id}
 			key={list.id}
+			{...list}
 		/>
 	));
 	return <div>{lists}</div>;

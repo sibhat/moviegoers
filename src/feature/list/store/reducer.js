@@ -18,31 +18,59 @@ const initialState = {
 	},
 	category: {
 		Movie: [
-			{ url: "now_playing", display: "Now Playing", id: 3 },
-			{ url: "top_rated", display: "Top Rated", id: 4 },
-			{ url: "popular", display: "Popular", id: 5 },
-			{ url: "upcoming", display: "Up Comming", id: 6 }
+			{
+				url: "now_playing",
+				display: "Now Playing",
+				id: 3,
+				now_playing: []
+			},
+			{
+				url: "top_rated",
+				display: "Top Rated Movies",
+				id: 4,
+				top_rated: []
+			},
+			{ url: "popular", display: "Popular Movies", id: 5, popular: [] },
+			{
+				url: "upcoming",
+				display: "Up Comming Movies",
+				id: 6,
+				upcoming: []
+			}
 		],
 		TV: [
-			{ url: "top_rated", display: "Top Rated", id: 7 },
-			{ url: "popular", display: "Popular", id: 8 },
-			{ url: "on_the_air", display: "On The Air", id: 9 },
-			{ url: "airing_today", display: "Airing Today", id: 10 }
+			{
+				url: "top_rated",
+				display: "Top Rated TV Shows",
+				id: 7,
+				top_rated: []
+			},
+			{ url: "popular", display: "Popular TV Shows", id: 8, popular: [] },
+			{
+				url: "on_the_air",
+				display: "On The Air TV Shows",
+				id: 9,
+				on_the_air: []
+			},
+			{
+				url: "airing_today",
+				display: "Airing Today TV Shows",
+				id: 10,
+				airing_today: []
+			}
 		]
+	},
+	genres: {
+		Movie: [],
+		TV: []
 	},
 	pending: false,
 	request_success: false,
 	base_url: "",
-	size: "",
-	latest_movies: [],
-	now_playing: [],
-	popular: [],
-	top_rated: [],
-	upcoming: [],
-	on_the_air: [],
-	airing_today: []
+	size: ""
 };
 export default (state = initialState, action) => {
+	let category;
 	switch (action.type) {
 		case actionType.UPDATE_OPTION:
 			let option = {
@@ -62,59 +90,94 @@ export default (state = initialState, action) => {
 				request_success: false
 			};
 		case actionType.NOW_PLAYING:
+			category = { ...state.category };
+			category["Movie"][0]["now_playing"] = action.payload;
 			return {
 				...state,
 				pending: false,
-				now_playing: action.payload,
+				category,
 				request_success: true
 			};
-		case actionType.TOP_RATED:
+		case actionType.TOP_RATED_MOVIE:
+			category = { ...state.category };
+			category["Movie"][1]["top_rated"] = action.payload;
 			return {
 				...state,
 				pending: false,
-				top_rated: action.payload,
+				category,
 				request_success: true
 			};
-		case actionType.LATEST:
+		case actionType.TOP_RATED_TV:
+			category = { ...state.category };
+			category["TV"][0]["top_rated"] = action.payload;
 			return {
 				...state,
 				pending: false,
-				latest_movies: action.payload,
+				category,
 				request_success: true
 			};
-		case actionType.POPULAR:
+
+		case actionType.POPULAR_MOVIE:
+			category = { ...state.category };
+			category["Movie"][2]["popular"] = action.payload;
 			return {
 				...state,
 				pending: false,
-				popular: action.payload,
+				category,
+				request_success: true
+			};
+		case actionType.POPULAR_TV:
+			category = { ...state.category };
+			category["TV"][1]["popular"] = action.payload;
+			return {
+				...state,
+				pending: false,
+				category,
 				request_success: true
 			};
 		case actionType.AIRING_TODAY:
+			category = { ...state.category };
+			category["TV"][3]["airing_today"] = action.payload;
 			return {
 				...state,
 				pending: false,
-				airing_today: action.payload,
+				category,
 				request_success: true
 			};
 		case actionType.ON_THE_AIR:
+			category = { ...state.category };
+			category["TV"][2]["on_the_air"] = action.payload;
 			return {
 				...state,
 				pending: false,
-				on_the_air: action.payload,
+				category,
 				request_success: true
 			};
 		case actionType.UPCOMING:
+			category = { ...state.category };
+			category["Movie"][3]["upcoming"] = action.payload;
 			return {
 				...state,
 				pending: false,
-				upcoming: action.payload,
+				category,
 				request_success: true
 			};
-		case actionType.LIST_MOVIES:
+
+		case actionType.GENRE_TV_LIST:
 			return {
 				...state,
 				request_success: true,
-				latest_movies: action.payload,
+				genres: {
+					Movie: { ...state.genres.Movie },
+					TV: action.payload
+				},
+				pending: false
+			};
+		case actionType.GENRE_MOVIE_LIST:
+			return {
+				...state,
+				request_success: true,
+				genres: { TV: { ...state.genres.TV }, Movie: action.payload },
 				pending: false
 			};
 		default:

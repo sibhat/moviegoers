@@ -8,7 +8,10 @@ import {
 	Divider
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import TagFacesIcon from "@material-ui/icons/TagFaces";
+import MoodBadIcon from "@material-ui/icons/MoodBad";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 import Search from "../../search/container";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
@@ -34,7 +37,6 @@ const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
 					>
 						<MenuIcon />
 					</IconButton>
-
 					<Link to="/" className={classes.title}>
 						MovieGoers
 					</Link>
@@ -57,6 +59,15 @@ const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
 					</IconButton>
 				</div>
 				<Divider />
+				<IconButton onClick={handleDrawerClose}>
+					<TagFacesIcon />
+				</IconButton>
+				<IconButton onClick={handleDrawerClose}>
+					<MoodBadIcon />
+				</IconButton>
+				<IconButton onClick={handleDrawerClose}>
+					<SentimentSatisfiedIcon />
+				</IconButton>
 			</Drawer>
 		</>
 	);

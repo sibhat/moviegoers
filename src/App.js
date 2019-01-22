@@ -1,14 +1,12 @@
-// import React, { Component } from "react";
-// // import axios from "axios";
-// import "./App.css";
-// import DetailContainer from "./feature/detail/container";
+import React from "react";
 import ListContainer from "./feature/list/container";
 import FooterContainer from "./feature/footer/container";
+import GenreList from "./feature/list/container/GenreList";
 import GridListForSearch from "./feature/list/container/GridListForSearch";
 import Main from "./feature/main/container";
 import Nav from "./feature/nav/presentational";
+
 import { Route } from "react-router-dom";
-import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -49,7 +47,6 @@ class App extends React.Component {
 			);
 		}
 
-		// console.log(option);
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
@@ -73,6 +70,7 @@ class App extends React.Component {
 								/>
 
 								{allOption}
+								<GenreList />
 							</>
 						)}
 					/>
