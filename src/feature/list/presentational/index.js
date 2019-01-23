@@ -11,13 +11,12 @@ const useStyles = theme => ({
 		overflow: "scroll",
 		flexDirection: "column",
 		width: "100%",
-		height: "200px",
+		height: "450px",
+		justifyContent: "center",
+		alighItems: "center",
 		position: "relative",
 		transition: "all .3s",
-		backgroundColor: theme.palette.background.paper,
-		"&:hover": {
-			overflow: "visible"
-		}
+		backgroundColor: theme.palette.background.paper
 	},
 	catagory: {
 		display: "inline-block",
@@ -27,18 +26,68 @@ const useStyles = theme => ({
 		margin: 0
 	},
 	card: {
-		width: 200,
-		height: "200px",
+		width: 300,
+		height: "100%",
 		margin: "0 2px",
 		position: "relative",
 		cursor: "pointer",
 		transition: "all .3s"
 	},
+	popper: {
+		position: "absolute",
+		height: "100%",
+		display: "flex",
+		opacity: 0,
+		flexDirection: "column",
+		justifyContent: "space-between",
+		bottom: 0,
+		zIndex: 100,
+		backgroundColor: "#000000d4",
+		transition: "all .4s ease",
+		"&:hover": {
+			opacity: 1,
+			animation: "myIn .4s easeIn"
+		}
+	},
+	"@keyframes myIn": {
+		"0%": {
+			opacity: 0
+		},
+		"50%": {
+			opacity: 0.5
+		},
+		"100%": {
+			opacity: 1
+		}
+	},
 	img: {
 		width: "100%",
 		position: "absolute",
-		height: "100%",
-		top: 0
+		top: 0,
+		transition: "all .3s",
+		"&:hover": {
+			transform: "scale(1.2)"
+		}
+	},
+
+	bgCard: {
+		width: "100px",
+		transform: "rotate(59deg)",
+		marginTop: -18,
+		opacity: 0.55
+	},
+
+	bgCardSpan: {
+		width: "160px",
+		height: "90%",
+		backgroundImage: "linear-gradient(#6b0082, #883b4c7a 90%)",
+		position: "absolute",
+		top: 35,
+		left: 84,
+		transform: "rotate(-10deg)",
+		zIndex: -1,
+		clipPath:
+			"polygon(0 0, 78% 100%, 59% 88%, 56% 99%, 41% 89%, 40% 100%, 25% 91%, 20% 100%)"
 	},
 	title: {
 		display: "block",
@@ -47,17 +96,17 @@ const useStyles = theme => ({
 		textDecoration: "none",
 		textAlign: "center",
 		fontWeight: "bold",
-		color: "#ff2925"
+		color: "#ff2925",
+		animation: "myIn 4s ease"
 	},
 	description: {
-		display: "block"
+		display: "block",
+		padding: "0 20px",
+		transition: theme.transitions.create([`all`], {
+			duration: theme.transitions.duration.complex
+		})
 	},
-	popper: {
-		width: 400,
-		padding: 20,
-		overflow: "visibile",
-		zIndex: 1100
-	},
+
 	flex: {
 		display: "flex",
 		justifyContent: "space-evenly",
