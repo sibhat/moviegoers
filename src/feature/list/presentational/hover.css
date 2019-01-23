@@ -1,0 +1,18 @@
+.mrow:hover ~ .mrow .popper {
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+.mrow:hover .popper {
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+.mrow:hover .card:hover ~ .card .popper {
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+.mrow:hover .card:hover .popper {
+	-webkit-transform: none;
+	transform: none;
+	visibility: visible;
+	transition-delay: 0s;
+}

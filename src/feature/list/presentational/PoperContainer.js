@@ -11,8 +11,10 @@ import {
 import { Card, Dialog, DialogActions, DialogContent } from "@material-ui/core";
 
 import { withRouter, Link } from "react-router-dom";
+import "./hover.css";
 
 import Main from "../../main/container";
+
 let x = 0;
 let timeInterval;
 const PoperContainer = props => {
@@ -51,7 +53,11 @@ const PoperContainer = props => {
 
 	return (
 		<>
-			<div className={styles.card} key={movie.id} onClick={handlerFunc}>
+			<div
+				className={styles.card + " card"}
+				key={movie.id}
+				onClick={handlerFunc}
+			>
 				<img
 					className={styles.img}
 					alt="poster"
@@ -60,7 +66,7 @@ const PoperContainer = props => {
 
 				{/* {({ TransitionProps }) => (
 						<Fade {...TransitionProps} timeout={350}> */}
-				<Paper className={classes.popper}>
+				<Paper className={classes.popper + " popper"} sibhat={"true"}>
 					<img
 						className={classes.bgCard}
 						alt="poster"
