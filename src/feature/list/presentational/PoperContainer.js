@@ -51,60 +51,47 @@ const PoperContainer = props => {
 
 	return (
 		<>
-			<div
-				className={styles.card}
-				key={movie.id}
-				onClick={handlerFunc}
-				// onMouseEnter={onMouseEnterHandler}
-				// onMouseLeave={onMouseLeaveHandler}
-			>
+			<div className={styles.card} key={movie.id} onClick={handlerFunc}>
 				<img
 					className={styles.img}
 					alt="poster"
 					src={`${props.baseUrl}/${props.size}${movie.poster_path}`}
 				/>
 
-				<div
-					id={movie.id}
-					// open={open}
-					// anchorEl={anchorEl}
-					// transition
-					className={classes.cardFadeIN}
-				>
-					{/* {({ TransitionProps }) => (
+				{/* {({ TransitionProps }) => (
 						<Fade {...TransitionProps} timeout={350}> */}
-					<Paper className={classes.popper}>
-						<img
-							className={classes.bgCard}
-							alt="poster"
-							src={"../assets/01-.png"}
-						/>
-						<span className={classes.bgCardSpan} />
-						<Typography className={classes.title}>
-							{movie.title || movie.name}
-						</Typography>
-						<div className={classes.flex}>
-							<Typography className={classes.description}>
-								{(movie.release_date &&
-									movie.release_date.slice(0, 4)) ||
-									(movie.first_air_date &&
-										movie.first_air_date.slice(0, 4))}
-							</Typography>
-							<Typography className={classes.description}>
-								{movie.vote_average || movie.popularity}
-							</Typography>
-						</div>
-						<Divider />
+				<Paper className={classes.popper}>
+					<img
+						className={classes.bgCard}
+						alt="poster"
+						src={"../assets/01-.png"}
+					/>
+					<span className={classes.bgCardSpan} />
+					<Typography className={classes.title}>
+						{movie.title || movie.name}
+					</Typography>
+					<div className={classes.flex}>
 						<Typography className={classes.description}>
-							{movie.overview}
+							{(movie.release_date &&
+								movie.release_date.slice(0, 4)) ||
+								(movie.first_air_date &&
+									movie.first_air_date.slice(0, 4))}
 						</Typography>
-						<Divider />
-						<Divider />
-					</Paper>
-					{/* </Fade> */}
-					{/* )} */}
-				</div>
+						<Typography className={classes.description}>
+							{movie.vote_average || movie.popularity}
+						</Typography>
+					</div>
+					<Divider />
+					<Typography className={classes.description}>
+						{movie.overview}
+					</Typography>
+					<Divider />
+					<Divider />
+				</Paper>
+				{/* </Fade> */}
+				{/* )} */}
 			</div>
+
 			<Dialog
 				className={classes.dialog}
 				fullWidth={true}

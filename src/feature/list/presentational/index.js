@@ -27,7 +27,7 @@ const useStyles = theme => ({
 	},
 	card: {
 		width: 300,
-		height: "100%",
+		height: "450px",
 		margin: "0 2px",
 		position: "relative",
 		cursor: "pointer",
@@ -41,21 +41,20 @@ const useStyles = theme => ({
 		flexDirection: "column",
 		justifyContent: "space-between",
 		bottom: 0,
-		zIndex: 100,
-		backgroundColor: "#000000d4",
-		transition: "all .4s ease",
+		zIndex: 0,
+		backgroundColor: "rgba(0,0,0,0.8)",
+		transition: "all 0.4s ease-in-out 0s",
+		willChange: "opacity",
 		"&:hover": {
 			opacity: 1,
-			animation: "myIn .4s easeIn"
+			animation: "myIn .4s ease-in-out 2s"
 		}
 	},
 	"@keyframes myIn": {
 		"0%": {
 			opacity: 0
 		},
-		"50%": {
-			opacity: 0.5
-		},
+
 		"100%": {
 			opacity: 1
 		}
@@ -92,11 +91,11 @@ const useStyles = theme => ({
 	title: {
 		display: "block",
 		fontSize: "26px",
-		// color: theme.palette.text.primary,
+		color: theme.palette.text.primary,
 		textDecoration: "none",
 		textAlign: "center",
 		fontWeight: "bold",
-		color: "#ff2925",
+		// color: "#ff2925",
 		animation: "myIn 4s ease"
 	},
 	description: {
