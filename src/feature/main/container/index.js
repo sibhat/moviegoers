@@ -11,7 +11,7 @@ class MainContainer extends Component {
 		setTimeout(() => {
 			let { option, currentChoice, request_success } = this.props;
 			console.log(option);
-			if (request_success) {
+			if (request_success && option) {
 				if (!currentChoice) {
 					this.props.listenCategory(
 						option[0][1]["name"].toLowerCase(),

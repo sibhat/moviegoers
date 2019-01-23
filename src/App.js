@@ -1,12 +1,12 @@
 import React from "react";
 import ListContainer from "./feature/list/container";
 import FooterContainer from "./feature/footer/container";
-// import GenreList from "./feature/list/container/GenreList";
+import DetailContainer from "./feature/detail/container";
 import GridListForSearch from "./feature/list/container/GridListForSearch";
 import Main from "./feature/main/container";
 import Nav from "./feature/nav/presentational";
 
-import { Route } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -32,7 +32,6 @@ class App extends React.Component {
 	render() {
 		let { classes, option, currentChoice } = this.props;
 		let allOption;
-
 		if (!currentChoice) {
 			option = Object.entries(option).filter(
 				(item, index, arry) =>
@@ -58,26 +57,40 @@ class App extends React.Component {
 				/>
 
 				<main className={classes.content}>
-					<Route
-						path="/"
-						exact
-						render={props => (
-							<>
-								<Main
-									className={classes.main}
-									option={option}
-									currentChoice={currentChoice}
-								/>
+					<Switch>
+						<Route
+							path="/"
+							exact
+							render={props => (
+								<>
+									<Main
+										className={classes.main}
+										option={option}
+										currentChoice={currentChoice}
+									/>
 
-								{allOption}
-								{/* <GenreList /> */}
-							</>
-						)}
-					/>
-					<Route
-						path="/search"
-						render={props => <GridListForSearch {...props} />}
-					/>
+									{allOption}
+									{/* <GenreList /> */}
+								</>
+							)}
+						/>
+						<Route
+							path="/search"
+							render={props => <GridListForSearch {...props} />}
+						/>
+						<Route
+							path="/movies/:id"
+							render={props => (
+								<DetailContainer {...props} option={"movie"} />
+							)}
+						/>
+						<Route
+							path="/tv/:id"
+							render={props => (
+								<DetailContainer {...props} option={"tv"} />
+							)}
+						/>
+					</Switch>
 				</main>
 				<FooterContainer />
 			</div>
@@ -92,9 +105,11 @@ const DispatchStateToProps = state => ({
 	option: state.list.option,
 	currentChoice: state.list.option.currentChoice
 });
-export default withStyles(styles)(
-	connect(
-		DispatchStateToProps,
-		{ config }
-	)(App)
+export default withRouter(
+	withStyles(styles)(
+		connect(
+			DispatchStateToProps,
+			{ config }
+		)(App)
+	)
 );

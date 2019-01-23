@@ -62,6 +62,18 @@ const useStyles = theme => ({
 		display: "flex",
 		justifyContent: "space-evenly",
 		fontSize: "18px"
+	},
+	dialog: {
+		minWidth: 300,
+		display: "flex"
+	},
+	main: {
+		// width: 200
+		flex: 1
+	},
+	dialogSection: {
+		flex: 1,
+		padding: 20
 	}
 });
 
