@@ -13,7 +13,11 @@ const useStyles = theme => ({
 		width: "100%",
 		height: "200px",
 		position: "relative",
-		backgroundColor: theme.palette.background.paper
+		transition: "all .3s",
+		backgroundColor: theme.palette.background.paper,
+		"&:hover": {
+			overflow: "visible"
+		}
 	},
 	catagory: {
 		display: "inline-block",
@@ -24,10 +28,11 @@ const useStyles = theme => ({
 	},
 	card: {
 		width: 200,
-		height: "100%",
+		height: "200px",
 		margin: "0 2px",
 		position: "relative",
-		cursor: "pointer"
+		cursor: "pointer",
+		transition: "all .3s"
 	},
 	img: {
 		width: "100%",
@@ -48,9 +53,10 @@ const useStyles = theme => ({
 		display: "block"
 	},
 	popper: {
-		width: 200,
+		width: 400,
 		padding: 20,
-		overflow: "scroll"
+		overflow: "visibile",
+		zIndex: 1100
 	},
 	flex: {
 		display: "flex",

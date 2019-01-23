@@ -8,6 +8,7 @@
 		"@material-ui/styles": "^3.0.0-alpha.8",
 		"axios": "^0.18.0",
 		"classnames": "^2.2.6",
+		"jss-plugin-template": "^10.0.0-alpha.7",
 		"react": "next",
 		"react-dom": "next",
 		"react-materialize": "^2.6.0",
