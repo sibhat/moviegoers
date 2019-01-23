@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getMovieList, genres } from "../store/action";
+import { getMovieList } from "../store/action";
 import { listenCategory } from "../../main/store/action";
 import { connect } from "react-redux";
 import List from "../presentational";
@@ -11,14 +11,14 @@ class GridList extends Component {
 	componentWillMount() {
 		let { url, option } = this.props;
 		this.props.getMovieList(option.toLowerCase(), url);
-		this.props.genres(`genre/${option.toLowerCase()}`);
+		// this.props.genres(`genre/${option.toLowerCase()}`);
 	}
 	movieDetailHandler = movieId => {
 		// console.log(this.props.option);
 		this.props.listenCategory(this.props.option.toLowerCase(), movieId);
 	};
 	render() {
-		let { size, data, baseUrl, url, display } = this.props;
+		let { size, baseUrl, url, display } = this.props;
 		if (this.props.pending) return <h1>waiting</h1>;
 		return (
 			<List
@@ -44,5 +44,5 @@ const MapPropsToState = state => {
 };
 export default connect(
 	MapPropsToState,
-	{ getMovieList, listenCategory, genres }
+	{ getMovieList, listenCategory }
 )(GridList);

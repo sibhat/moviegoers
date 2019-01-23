@@ -3,7 +3,6 @@ export const CONFIG_DB = "CONFIGDB";
 export const NOW_PLAYING = "NOW_PLAYING";
 export const TOP_RATED_TV = "TOP_RATEDTV";
 export const TOP_RATED_MOVIE = "TOP_RATEDMOVIE";
-export const LATEST = "LATEST";
 export const POPULAR_MOVIE = "POPULARMOVIE";
 export const POPULAR_TV = "POPULARTV";
 export const UPCOMING = "UPCOMING";

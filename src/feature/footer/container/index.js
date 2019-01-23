@@ -4,9 +4,9 @@ import { currentOptionHandler } from "../../list/store/action";
 import { connect } from "react-redux";
 import Footer from "../presentational";
 class FooterContainer extends Component {
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// }
 
 	listenCategoryHanlder = id => {
 		this.props.currentOptionHandler(id);

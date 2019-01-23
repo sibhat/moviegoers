@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import List from "../presentational";
+// import List from "../presentational";
 class GenreList extends Component {
 	constructor(props) {
 		super(props);
@@ -15,7 +15,7 @@ class GenreList extends Component {
 	};
 	render() {
 		let { baseUrl, data, category, size, genres, request } = this.props;
-		console.log(this.props);
+		// console.log(this.props);
 		if (!request) return <h1>waiting</h1>;
 
 		return (
