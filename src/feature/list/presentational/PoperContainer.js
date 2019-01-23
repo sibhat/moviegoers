@@ -64,7 +64,7 @@ const PoperContainer = props => {
 					<img
 						className={classes.bgCard}
 						alt="poster"
-						src={"../assets/01-.png"}
+						src={"../assets/04.png"}
 					/>
 					<span className={classes.bgCardSpan} />
 					<Typography className={classes.title}>

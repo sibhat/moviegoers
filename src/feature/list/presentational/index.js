@@ -9,15 +9,14 @@ const useStyles = theme => ({
 		flexWrap: "wrap",
 		justifyContent: "space-around",
 		overflowX: "scroll",
-		overflowY: "hidden",
 		flexDirection: "column",
 		width: "100%",
-		height: "450px",
+		height: "460px",
 		justifyContent: "center",
-		alighItems: "center",
+		// alignContent: "center",
 		position: "relative",
 		transition: "all .3s",
-		backgroundColor: theme.palette.background.paper
+		backgroundColor: "transparent"
 	},
 	catagory: {
 		display: "inline-block",
@@ -29,10 +28,19 @@ const useStyles = theme => ({
 	card: {
 		width: 300,
 		height: "450px",
-		margin: "0 2px",
+		margin: "0 12px",
 		position: "relative",
 		cursor: "pointer",
-		transition: "all .3s"
+		borderRadius: 10,
+		overflow: "hidden",
+		transition: "all .3s",
+		display: "inline-block",
+		"&:hover": {
+			boxShadow: "9px 6px 17px 0px rgba(0,0,0,0.4)",
+			paddingTop: 5,
+			transform: "translateY(-5px)",
+			animation: "myIn .4s ease-in-out 2s"
+		}
 	},
 	popper: {
 		position: "absolute",
@@ -47,6 +55,7 @@ const useStyles = theme => ({
 		transition: "all 0.4s ease-in-out 0s",
 		willChange: "opacity",
 		"&:hover": {
+			paddingTop: 5,
 			opacity: 1,
 			animation: "myIn .4s ease-in-out 2s"
 		}
@@ -71,23 +80,23 @@ const useStyles = theme => ({
 	},
 
 	bgCard: {
-		width: "100px",
-		transform: "rotate(59deg)",
-		marginTop: -18,
-		opacity: 0.55
+		width: "100%",
+		marginTop: -7,
+		opacity: 0.85
 	},
 
 	bgCardSpan: {
-		width: "160px",
-		height: "90%",
-		backgroundImage: "linear-gradient(#6b0082, #883b4c7a 90%)",
-		position: "absolute",
-		top: 35,
-		left: 84,
-		transform: "rotate(-10deg)",
-		zIndex: -1,
-		clipPath:
-			"polygon(0 0, 78% 100%, 59% 88%, 56% 99%, 41% 89%, 40% 100%, 25% 91%, 20% 100%)"
+		display: "none"
+		// width: "160px",
+		// height: "90%",
+		// backgroundImage: "linear-gradient(#6b0082, #883b4c7a 90%)",
+		// position: "absolute",
+		// top: 35,
+		// left: 84,
+		// transform: "rotate(-10deg)",
+		// zIndex: -1,
+		// clipPath:
+		// 	"polygon(0 0, 78% 100%, 59% 88%, 56% 99%, 41% 89%, 40% 100%, 25% 91%, 20% 100%)"
 	},
 	title: {
 		display: "block",
