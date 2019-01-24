@@ -8,15 +8,19 @@ import {
 	Button
 } from "@material-ui/core";
 
-import { Card, Dialog, DialogActions, DialogContent } from "@material-ui/core";
+import {
+	Card,
+	Dialog,
+	DialogActions,
+	DialogContent,
+	Chip
+} from "@material-ui/core";
 
 import { withRouter, Link } from "react-router-dom";
 import "./hover.css";
 
 import Main from "../../main/container";
 
-let x = 0;
-let timeInterval;
 const PoperContainer = props => {
 	let { movie, styles, classes, history } = props;
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,20 +39,13 @@ const PoperContainer = props => {
 	}
 	function onMouseEnterHandler(e) {
 		const { currentTarget } = e;
-		x = 0;
-		timeInterval = setInterval(() => {
-			x++;
-			if (x > 3) {
-				x = 0;
-				setAnchorEl(currentTarget);
-				setOpen(true);
-			}
-		}, 100);
+
+		setAnchorEl(currentTarget);
+		setOpen(true);
 	}
 	function onMouseLeaveHandler() {
 		setAnchorEl(null);
 		setOpen(false);
-		clearInterval(timeInterval);
 	}
 
 	return (
@@ -73,25 +70,31 @@ const PoperContainer = props => {
 						src={"../assets/04.png"}
 					/>
 					<span className={classes.bgCardSpan} />
-					<Typography className={classes.title}>
-						{movie.title || movie.name}
+
+					<Typography className={classes.description}>
+						{movie.overview.slice(0, 200)} {"..."}
 					</Typography>
+					<Divider />
 					<div className={classes.flex}>
-						<Typography className={classes.description}>
-							{(movie.release_date &&
-								movie.release_date.slice(0, 4)) ||
+						<Chip
+							label={`
+							${(movie.release_date && movie.release_date.slice(0, 4)) ||
 								(movie.first_air_date &&
 									movie.first_air_date.slice(0, 4))}
-						</Typography>
-						<Typography className={classes.description}>
-							{movie.vote_average || movie.popularity}
-						</Typography>
+							`}
+							color="secondary"
+							variant="outlined"
+							className={classes.chip}
+						/>
+
+						<Chip
+							label={`${movie.vote_average || movie.popularity}`}
+							color="secondary"
+							variant="outlined"
+							className={classes.chip}
+						/>
 					</div>
-					<Divider />
-					<Typography className={classes.description}>
-						{movie.overview}
-					</Typography>
-					<Divider />
+
 					<Divider />
 				</Paper>
 				{/* </Fade> */}
