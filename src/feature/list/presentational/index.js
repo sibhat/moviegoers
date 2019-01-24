@@ -28,20 +28,20 @@ const useStyles = theme => {
 			margin: 0
 		},
 		card: {
-			width: 300,
-			height: "450px",
+			width: 267,
+			height: "400px",
 			margin: "0 12px",
 			position: "relative",
 			cursor: "pointer",
 			borderRadius: 10,
 			overflow: "hidden",
-			transition: "all .3s",
 			display: "inline-block",
+			transition: "all 0.275s ease-in-out, visibility 0s 0.275s",
+
 			"&:hover": {
 				boxShadow: "9px 6px 17px 0px rgba(0,0,0,0.4)",
 				paddingTop: 5,
-				transform: "translateY(-5px)",
-				animation: "myIn .4s ease-in-out 2s"
+				transform: "translateY(-5px)"
 			}
 		},
 		popper: {
@@ -84,10 +84,7 @@ const useStyles = theme => {
 			width: "100%",
 			position: "absolute",
 			top: 0,
-			transition: "all .3s",
-			"&:hover": {
-				transform: "scale(1.2)"
-			}
+			transition: "all .3s"
 		},
 
 		bgCard: {
