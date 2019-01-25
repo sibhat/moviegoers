@@ -1,1 +1,4 @@
-export const GET_MOVIE = "GET_MOVIE";
+export const GET_MOVIE_REQUEST = "GET_MOVIE";
+export const GET_MOVIE_RESULT = "GET_MOVIE_RESULT";
+export const GET_MOVIE_ERROR = "GET_MOVIE_ERROR";
+export const GET_RECOMMENDATION = "GET_RECOMMENDATION";

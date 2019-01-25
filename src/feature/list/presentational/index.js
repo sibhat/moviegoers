@@ -13,7 +13,7 @@ const useStyles = theme => {
 			overflowX: "scroll",
 			flexDirection: "column",
 			width: "100%",
-			height: "460px",
+			height: "410px",
 			justifyContent: "center",
 			// alignContent: "center",
 			position: "relative",

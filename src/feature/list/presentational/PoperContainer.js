@@ -86,7 +86,9 @@ const PoperContainer = props => {
 							variant="outlined"
 							className={classes.chip}
 						/>
-
+						<Typography color="secondary" variant="h6">
+							{"Trailer"}
+						</Typography>
 						<Chip
 							label={`${movie.vote_average || movie.popularity}`}
 							color="secondary"

@@ -8,7 +8,7 @@ class GridList extends Component {
 		super(props);
 		this.state = {};
 	}
-	componentWillMount() {
+	componentDidMount() {
 		let { url, option } = this.props;
 		this.props.getMovieList(option.toLowerCase(), url);
 		// this.props.genres(`genre/${option.toLowerCase()}`);
