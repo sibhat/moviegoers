@@ -67,7 +67,8 @@ const initialState = {
 	pending: false,
 	request_success: false,
 	base_url: "",
-	size: ""
+	size: "",
+	backdrop_sizes: ""
 };
 export default (state = initialState, action) => {
 	let category;
@@ -85,8 +86,9 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				pending: true,
-				base_url: action.payload.images.base_url,
+				base_url: action.payload.images.secure_base_url,
 				size: action.payload.images.poster_sizes,
+				backdrop_sizes: action.payload.images.backdrop_sizes,
 				request_success: false
 			};
 		case actionType.NOW_PLAYING:
