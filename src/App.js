@@ -5,6 +5,7 @@ import DetailContainer from "./feature/detail/container";
 import GridListForSearch from "./feature/list/container/GridListForSearch";
 import Main from "./feature/main/container";
 import Nav from "./feature/nav/presentational";
+import compose from "recompose/compose";
 
 import { Route, Switch, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -62,7 +63,7 @@ class App extends React.Component {
 							path="/"
 							exact
 							render={props => (
-								<>
+								<React.Fragment>
 									<Main
 										className={classes.main}
 										option={option}
@@ -70,8 +71,7 @@ class App extends React.Component {
 									/>
 
 									{allOption}
-									{/* <GenreList /> */}
-								</>
+								</React.Fragment>
 							)}
 						/>
 						<Route
@@ -105,11 +105,12 @@ const DispatchStateToProps = state => ({
 	option: state.list.option,
 	currentChoice: state.list.option.currentChoice
 });
-export default withRouter(
-	withStyles(styles)(
-		connect(
-			DispatchStateToProps,
-			{ config }
-		)(App)
+
+export default compose(
+	withRouter,
+	withStyles(styles),
+	connect(
+		DispatchStateToProps,
+		{ config }
 	)
-);
+)(App);
