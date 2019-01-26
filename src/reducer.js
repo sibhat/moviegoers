@@ -1,17 +1,29 @@
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunkMiddleware from "redux-thunk";
+
 import rootReducer from "./feature/list/store/reducer";
 import rootReducer2 from "./feature/detail/store/reducer";
 import rootReducer3 from "./feature/main/store/reducer";
 import rootReducerSearch from "./feature/search/store/reducet";
-const composeEnhancers =
-	typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-		? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-		: compose;
 
-const enhancer = composeEnhancers(applyMiddleware(thunkMiddleware));
+const initialState = {};
+const enhancers = [];
+const middleware = [thunkMiddleware];
 
-export default function configureStore(preloadedState) {
+if (process.env.NODE_ENV === "development") {
+	const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
+
+	if (typeof devToolsExtension === "function") {
+		enhancers.push(devToolsExtension());
+	}
+}
+
+const composedEnhancers = compose(
+	applyMiddleware(...middleware),
+	...enhancers
+);
+
+export default function configureStore(initialState) {
 	return createStore(
 		combineReducers({
 			list: rootReducer,
@@ -20,7 +32,7 @@ export default function configureStore(preloadedState) {
 			search: rootReducerSearch
 		}),
 
-		preloadedState,
-		enhancer
+		initialState,
+		composedEnhancers
 	);
 }

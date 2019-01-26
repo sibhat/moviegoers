@@ -7,16 +7,17 @@ import App from "./App";
 import configureStore from "./reducer";
 
 const store = configureStore();
-
-it("renders without crashing", () => {
-	const div = document.createElement("div");
-	ReactDOM.render(
-		<Provider store={store}>
-			<Router>
-				<App />
-			</Router>{" "}
-		</Provider>,
-		div
-	);
-	ReactDOM.unmountComponentAtNode(div);
+describe("app componet tests", () => {
+	it("renders without crashing", () => {
+		const div = document.createElement("div");
+		ReactDOM.render(
+			<Provider store={store}>
+				<Router>
+					<App />
+				</Router>
+			</Provider>,
+			div
+		);
+		ReactDOM.unmountComponentAtNode(div);
+	});
 });
