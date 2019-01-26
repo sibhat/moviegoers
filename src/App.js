@@ -8,7 +8,6 @@ import Nav from "./feature/nav/presentational";
 import compose from "recompose/compose";
 
 import { Route, Switch, withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { styles } from "./AppJSS";
@@ -98,9 +97,6 @@ class App extends React.Component {
 	}
 }
 
-App.propTypes = {
-	classes: PropTypes.object.isRequired
-};
 const DispatchStateToProps = state => ({
 	option: state.list.option,
 	currentChoice: state.list.option.currentChoice
