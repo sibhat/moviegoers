@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 
 import { Typography, Chip } from "@material-ui/core";
+import { func } from "prop-types";
 
 const useStyles = props => {
 	return {
