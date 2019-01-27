@@ -9,7 +9,6 @@ const useStyles = theme => {
 		root: {
 			display: "flex",
 			flexWrap: "wrap",
-			justifyContent: "space-around",
 			overflowX: "scroll",
 			flexDirection: "column",
 			width: "100%",
@@ -37,7 +36,6 @@ const useStyles = theme => {
 			overflow: "hidden",
 			display: "inline-block",
 			transition: "all 0.275s ease-in-out, visibility 0s 0.275s",
-
 			"&:hover": {
 				boxShadow: "9px 6px 17px 0px rgba(0,0,0,0.4)",
 				paddingTop: 5,
@@ -95,16 +93,6 @@ const useStyles = theme => {
 
 		bgCardSpan: {
 			display: "none"
-			// width: "160px",
-			// height: "90%",
-			// backgroundImage: "linear-gradient(#6b0082, #883b4c7a 90%)",
-			// position: "absolute",
-			// top: 35,
-			// left: 84,
-			// transform: "rotate(-10deg)",
-			// zIndex: -1,
-			// clipPath:
-			// 	"polygon(0 0, 78% 100%, 59% 88%, 56% 99%, 41% 89%, 40% 100%, 25% 91%, 20% 100%)"
 		},
 		title: {
 			display: "block",
@@ -145,12 +133,16 @@ const useStyles = theme => {
 };
 
 function List(props) {
-	if (!props.data.results) {
-		return <h1>waiting presentation {props.display}</h1>;
-	}
 	let styles = props.classes;
+	if (!props.data.results || props.data.results.length < 1) {
+		return (
+			<div className={styles.root + " mrow"}>
+				<h1>waiting presentation {props.display}</h1>
+			</div>
+		);
+	}
 	return (
-		<>
+		<React.Fragment>
 			<Typography variant="h6" gutterBottom className={styles.catagory}>
 				{props.display}
 			</Typography>
@@ -164,7 +156,7 @@ function List(props) {
 					/>
 				))}
 			</div>
-		</>
+		</React.Fragment>
 	);
 }
 

@@ -50,7 +50,7 @@ export const genres = option => dispatch => {
 		.get(
 			`https://api.themoviedb.org/3/${option}/list?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
-			}&language=en-US&page=3`
+			}&language=en-US&page=1`
 		)
 		.then(result => {
 			dispatch({ type: `REQUEST GENRE SUCCESSED` });
@@ -62,11 +62,11 @@ export const genres = option => dispatch => {
 };
 export const getMovieList = (option = "movie", url) => dispatch => {
 	dispatch({ type: `REQUEST ${url} SEND` });
-	axios
+	return axios
 		.get(
 			`https://api.themoviedb.org/3/${option}/${url}?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
-			}&language=en-US&page=3`
+			}&language=en-US&page=1`
 		)
 		.then(result => {
 			dispatch({ type: `REQUEST ${url} SUCCESSED` });

@@ -15,10 +15,10 @@ const ListContainer = props => {
 			{...list}
 		/>
 	));
-	return <div>{lists}</div>;
+	return <React.Fragment>{lists}</React.Fragment>;
 };
 const MapPropsToState = state => ({
 	category: state.list.category,
-	request: state.list.request
+	request: state.list.request_success
 });
 export default connect(MapPropsToState)(ListContainer);
