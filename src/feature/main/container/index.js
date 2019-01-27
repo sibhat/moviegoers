@@ -10,7 +10,6 @@ class MainContainer extends Component {
 	componentDidMount() {
 		setTimeout(() => {
 			let { option, currentChoice, request_success } = this.props;
-			console.log(option);
 			if (request_success && option) {
 				if (!currentChoice) {
 					this.props.listenCategory(
@@ -28,6 +27,9 @@ class MainContainer extends Component {
 	}
 
 	render() {
+		if (!this.props.currentChoiceMovie) {
+			return <div className={this.props.className}>waiting</div>;
+		}
 		return (
 			<Detail
 				currentChoiceMovie={this.props.currentChoiceMovie}

@@ -104,6 +104,7 @@ const index = props => {
 				<img
 					src={`${props.baseUrl}/${props.size}${data.backdrop_path}`}
 					className={props.classes.backdrop}
+					alt="background"
 				/>
 			</div>
 		</div>
