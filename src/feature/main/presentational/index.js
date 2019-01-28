@@ -1,8 +1,8 @@
 import React from "react";
 
 const index = ({ currentChoiceMovie, className }) => {
-	if (!currentChoiceMovie) {
-		return <div className={className}>waiting</div>;
+	if (currentChoiceMovie.results.length < 1) {
+		return <div className={className}>Could not get trailer</div>;
 	}
 	return (
 		currentChoiceMovie && (

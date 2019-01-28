@@ -12,11 +12,11 @@ const movieRecommendationsHandler = movies => ({
 
 export const getMovieDetail = (option, id) => dispatch => {
 	dispatch({ type: actionType.GET_MOVIE_REQUEST });
-	axios
+	return axios
 		.get(
 			`https://api.themoviedb.org/3/${option}/${id}?api_key=${
 				process.env.REACT_APP_MOVIEDB_API
-			}&language=en-US&page=1`
+			}&language=en-US`
 		)
 		.then(result => {
 			dispatch(movieDetailHandler(result.data));

@@ -4,12 +4,11 @@ import { withStyles } from "@material-ui/core/styles";
 import PoperContainer from "./PoperContainer";
 
 const useStyles = theme => {
-	console.log("theme", theme);
+	// console.log("theme", theme);q
 	return {
 		root: {
 			display: "flex",
 			flexWrap: "wrap",
-			justifyContent: "space-around",
 			overflowX: "scroll",
 			flexDirection: "column",
 			width: "100%",
@@ -25,7 +24,8 @@ const useStyles = theme => {
 			// position: "absolute",
 			paddingLeft: 30,
 			zIndex: 100,
-			margin: 0
+			margin: 0,
+			color: "#b6b6b6"
 		},
 		card: {
 			width: 267,
@@ -37,7 +37,6 @@ const useStyles = theme => {
 			overflow: "hidden",
 			display: "inline-block",
 			transition: "all 0.275s ease-in-out, visibility 0s 0.275s",
-
 			"&:hover": {
 				boxShadow: "9px 6px 17px 0px rgba(0,0,0,0.4)",
 				paddingTop: 5,
@@ -48,6 +47,7 @@ const useStyles = theme => {
 			position: "absolute",
 			height: "100%",
 			display: "flex",
+			maxWidth: 1200,
 			visibility: "hidden",
 			flexDirection: "column",
 			justifyContent: "space-between",
@@ -74,12 +74,12 @@ const useStyles = theme => {
 				opacity: 1
 			}
 		},
-		"@global": {
-			"li > div:nth-of-type(1)": {
-				display: "block !important",
-				backgroundColor: "yellow"
-			}
-		},
+		// "@global": {
+		// 	"li > div:nth-of-type(1)": {
+		// 		display: "block !important",
+		// 		backgroundColor: "yellow"
+		// 	}
+		// },
 		img: {
 			width: "100%",
 			position: "absolute",
@@ -95,16 +95,6 @@ const useStyles = theme => {
 
 		bgCardSpan: {
 			display: "none"
-			// width: "160px",
-			// height: "90%",
-			// backgroundImage: "linear-gradient(#6b0082, #883b4c7a 90%)",
-			// position: "absolute",
-			// top: 35,
-			// left: 84,
-			// transform: "rotate(-10deg)",
-			// zIndex: -1,
-			// clipPath:
-			// 	"polygon(0 0, 78% 100%, 59% 88%, 56% 99%, 41% 89%, 40% 100%, 25% 91%, 20% 100%)"
 		},
 		title: {
 			display: "block",
@@ -130,12 +120,16 @@ const useStyles = theme => {
 			fontSize: "18px"
 		},
 		dialog: {
-			minWidth: 300,
-			display: "flex"
+			minWidth: 500,
+			maxWidth: 600
+			// display: "flex"
 		},
 		main: {
 			// width: 200
-			flex: 1
+			flex: 1,
+			display: "flex",
+			justifyContent: "space-evenly",
+			alignItems: "center"
 		},
 		dialogSection: {
 			flex: 1,
@@ -145,12 +139,16 @@ const useStyles = theme => {
 };
 
 function List(props) {
-	if (!props.data.results) {
-		return <h1>waiting presentation {props.display}</h1>;
-	}
 	let styles = props.classes;
+	if (!props.data.results || props.data.results.length < 1) {
+		return (
+			<div className={styles.root + " mrow"}>
+				<h1>waiting presentation {props.display}</h1>
+			</div>
+		);
+	}
 	return (
-		<>
+		<React.Fragment>
 			<Typography variant="h6" gutterBottom className={styles.catagory}>
 				{props.display}
 			</Typography>
@@ -164,7 +162,7 @@ function List(props) {
 					/>
 				))}
 			</div>
-		</>
+		</React.Fragment>
 	);
 }
 
