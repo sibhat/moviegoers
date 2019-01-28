@@ -74,12 +74,7 @@ const useStyles = theme => {
 				opacity: 1
 			}
 		},
-		// "@global": {
-		// 	"li > div:nth-of-type(1)": {
-		// 		display: "block !important",
-		// 		backgroundColor: "yellow"
-		// 	}
-		// },
+
 		img: {
 			width: "100%",
 			position: "absolute",

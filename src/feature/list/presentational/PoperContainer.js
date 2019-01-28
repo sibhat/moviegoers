@@ -2,7 +2,6 @@ import React from "react";
 import { Paper, Typography, Divider, Button } from "@material-ui/core";
 import { Dialog, DialogActions, DialogContent, Chip } from "@material-ui/core";
 
-import { withRouter } from "react-router-dom";
 import "./hover.css";
 
 import Main from "../../main/container";
@@ -21,7 +20,7 @@ const PoperContainer = props => {
 	}
 
 	return (
-		<>
+		<React.Fragment>
 			<div
 				className={styles.card + " card"}
 				key={movie.id}
@@ -71,8 +70,7 @@ const PoperContainer = props => {
 				</Paper>
 			</div>
 			<Dialog
-				classes={classes.dialog}
-				fullWidth={"true"}
+				fullWidth={true}
 				open={dOpen}
 				maxWidth="md"
 				onClose={handlerFunc}
@@ -111,8 +109,8 @@ const PoperContainer = props => {
 					</Button>
 				</DialogActions>
 			</Dialog>
-		</>
+		</React.Fragment>
 	);
 };
 
-export default withRouter(PoperContainer);
+export default PoperContainer;

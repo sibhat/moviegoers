@@ -13,6 +13,7 @@ const ListContainer = props => {
 			id={list.id}
 			key={list.id}
 			{...list}
+			{...props}
 		/>
 	));
 	return <React.Fragment>{lists}</React.Fragment>;

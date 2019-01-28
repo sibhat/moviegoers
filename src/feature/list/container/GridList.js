@@ -28,6 +28,7 @@ class GridList extends Component {
 				size={size}
 				baseUrl={baseUrl}
 				movieDetailHandler={this.movieDetailHandler}
+				{...this.props}
 			/>
 		);
 	}
