@@ -24,7 +24,7 @@ class DetailContainer extends Component {
 	};
 	render() {
 		console.log("props at detail] ", this.props);
-		let { display, url, size, baseUrl } = this.props;
+		let { url, size, baseUrl } = this.props;
 		if (!this.props.request_success) return <h1>waiting</h1>;
 		return (
 			<>

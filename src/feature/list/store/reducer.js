@@ -39,13 +39,13 @@ const initialState = {
 			}
 		],
 		TV: [
+			{ url: "popular", display: "Popular TV Shows", id: 8, popular: [] },
 			{
 				url: "top_rated",
 				display: "Top Rated TV Shows",
 				id: 7,
 				top_rated: []
 			},
-			{ url: "popular", display: "Popular TV Shows", id: 8, popular: [] },
 			{
 				url: "on_the_air",
 				display: "On The Air TV Shows",
@@ -111,7 +111,7 @@ export default (state = initialState, action) => {
 			};
 		case actionType.TOP_RATED_TV:
 			category = { ...state.category };
-			category["TV"][0]["top_rated"] = action.payload;
+			category["TV"][1]["top_rated"] = action.payload;
 			return {
 				...state,
 				pending: false,
@@ -130,7 +130,7 @@ export default (state = initialState, action) => {
 			};
 		case actionType.POPULAR_TV:
 			category = { ...state.category };
-			category["TV"][1]["popular"] = action.payload;
+			category["TV"][0]["popular"] = action.payload;
 			return {
 				...state,
 				pending: false,

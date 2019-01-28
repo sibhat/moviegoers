@@ -24,7 +24,8 @@ const useStyles = theme => {
 			// position: "absolute",
 			paddingLeft: 30,
 			zIndex: 100,
-			margin: 0
+			margin: 0,
+			color: "#b6b6b6"
 		},
 		card: {
 			width: 267,
@@ -46,6 +47,7 @@ const useStyles = theme => {
 			position: "absolute",
 			height: "100%",
 			display: "flex",
+			maxWidth: 1200,
 			visibility: "hidden",
 			flexDirection: "column",
 			justifyContent: "space-between",
@@ -72,12 +74,12 @@ const useStyles = theme => {
 				opacity: 1
 			}
 		},
-		"@global": {
-			"li > div:nth-of-type(1)": {
-				display: "block !important",
-				backgroundColor: "yellow"
-			}
-		},
+		// "@global": {
+		// 	"li > div:nth-of-type(1)": {
+		// 		display: "block !important",
+		// 		backgroundColor: "yellow"
+		// 	}
+		// },
 		img: {
 			width: "100%",
 			position: "absolute",
@@ -118,12 +120,16 @@ const useStyles = theme => {
 			fontSize: "18px"
 		},
 		dialog: {
-			minWidth: 300,
-			display: "flex"
+			minWidth: 500,
+			maxWidth: 600
+			// display: "flex"
 		},
 		main: {
 			// width: 200
-			flex: 1
+			flex: 1,
+			display: "flex",
+			justifyContent: "space-evenly",
+			alignItems: "center"
 		},
 		dialogSection: {
 			flex: 1,

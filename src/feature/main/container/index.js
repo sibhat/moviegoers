@@ -39,7 +39,7 @@ class MainContainer extends Component {
 	}
 }
 const MapPropsToState = state => ({
-	data: state.list.category.TV[0]["top_rated"],
+	data: state.list.category.TV[0]["popular"],
 	currentChoiceMovie: state.trailer.currentChoiceMovie,
 	request_success: state.list.request_success
 });

@@ -2,9 +2,8 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 
 import { Typography, Chip } from "@material-ui/core";
-import { func } from "prop-types";
 
-const useStyles = props => {
+const useStyles = () => {
 	return {
 		root: {
 			width: "100vw",
@@ -96,9 +95,11 @@ const index = props => {
 				<Typography className={props.classes.description}>
 					{props.data.overview}
 				</Typography>
-				<Typography className={props.classes.genres}>
-					Genres: {props.data.genres.map(genre => genre.name)}
-				</Typography>
+				{props.data.genres && (
+					<Typography className={props.classes.genres}>
+						Genres: {props.data.genres.map(genre => genre.name)}
+					</Typography>
+				)}
 			</div>
 			<div className={props.classes.bgPhoto} spacing={"30"}>
 				<img

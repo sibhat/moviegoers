@@ -1,51 +1,23 @@
 import React from "react";
-import {
-	Popper,
-	Fade,
-	Paper,
-	Typography,
-	Divider,
-	Button
-} from "@material-ui/core";
+import { Paper, Typography, Divider, Button } from "@material-ui/core";
+import { Dialog, DialogActions, DialogContent, Chip } from "@material-ui/core";
 
-import {
-	Card,
-	Dialog,
-	DialogActions,
-	DialogContent,
-	Chip
-} from "@material-ui/core";
-
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./hover.css";
 
 import Main from "../../main/container";
 
 const PoperContainer = props => {
 	let { movie, styles, classes, history } = props;
-	const [anchorEl, setAnchorEl] = React.useState(null);
-	const [open, setOpen] = React.useState(true);
 	const [dOpen, setDOpen] = React.useState(false);
-	function moreInfoHandler(e) {
+	function moreInfoHandler() {
 		let option = movie.title ? "movies" : "tv";
 		history.push(`/${option}/${movie.id}`);
 	}
-	function handlerFunc(e) {
-		// const { currentTarget } = e;
-		// setAnchorEl(currentTarget);
+	function handlerFunc() {
 		setDOpen(!dOpen);
 
 		props.movieDetailHandler(movie.id);
-	}
-	function onMouseEnterHandler(e) {
-		const { currentTarget } = e;
-
-		setAnchorEl(currentTarget);
-		setOpen(true);
-	}
-	function onMouseLeaveHandler() {
-		setAnchorEl(null);
-		setOpen(false);
 	}
 
 	return (
@@ -61,9 +33,7 @@ const PoperContainer = props => {
 					src={`${props.baseUrl}/${props.size}${movie.poster_path}`}
 				/>
 
-				{/* {({ TransitionProps }) => (
-						<Fade {...TransitionProps} timeout={350}> */}
-				<Paper className={classes.popper + " popper"} sibhat={"true"}>
+				<Paper className={classes.popper + " popper"}>
 					<img
 						className={classes.bgCard}
 						alt="poster"
@@ -99,14 +69,12 @@ const PoperContainer = props => {
 
 					<Divider />
 				</Paper>
-				{/* </Fade> */}
-				{/* )} */}
 			</div>
-
 			<Dialog
-				className={classes.dialog}
-				fullWidth={true}
+				classes={classes.dialog}
+				fullWidth={"true"}
 				open={dOpen}
+				maxWidth="md"
 				onClose={handlerFunc}
 			>
 				<div className={classes.flex}>

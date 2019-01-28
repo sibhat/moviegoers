@@ -10,7 +10,7 @@ import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
 
-const initialState = {};
+// const initialState = {};
 const enhancers = [];
 const middleware = [thunkMiddleware];
 
