@@ -5,7 +5,7 @@ import "./hover.css";
 import Main from "../../main/container";
 import { withRouter } from "react-router-dom";
 
-const PoperContainer = props => {
+const Card = props => {
 	let { movie, styles, classes, history } = props;
 
 	// dopen for dialog state managment
@@ -115,4 +115,4 @@ const PoperContainer = props => {
 	);
 };
 
-export default withRouter(PoperContainer);
+export default withRouter(Card);

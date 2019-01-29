@@ -3,6 +3,8 @@ import GridList from "./GridList";
 import { connect } from "react-redux";
 
 const ListContainer = props => {
+	// option can be either tv/movie
+	// each option have category state with partial url, display used in presentation/index to display name for each category, and an id, result.data property as well
 	let { category, option } = props;
 
 	let lists = category[option].map(list => (

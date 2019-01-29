@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import List from "./index";
-import PoperContainer from "./PoperContainer";
+import Card from "./PoperContainer";
 
 describe("<List />", () => {
 	it("renders component without problem", () => {
@@ -21,7 +21,7 @@ describe("<List />", () => {
 });
 describe("<PoperContainer />", () => {
 	it("renders component without problem", () => {
-		const cardWrapper = shallow(<PoperContainer />);
+		const cardWrapper = shallow(<Card />);
 
 		expect(cardWrapper).toMatchSnapshot();
 	});
