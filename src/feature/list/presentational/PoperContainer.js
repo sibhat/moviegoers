@@ -1,21 +1,23 @@
 import React from "react";
 import { Paper, Typography, Divider, Button } from "@material-ui/core";
 import { Dialog, DialogActions, DialogContent, Chip } from "@material-ui/core";
-
 import "./hover.css";
-
 import Main from "../../main/container";
+import { withRouter } from "react-router-dom";
 
 const PoperContainer = props => {
 	let { movie, styles, classes, history } = props;
+
+	// dopen for dialog state managment
 	const [dOpen, setDOpen] = React.useState(false);
+
 	function moreInfoHandler() {
 		let option = movie.title ? "movies" : "tv";
 		history.push(`/${option}/${movie.id}`);
 	}
+
 	function handlerFunc() {
 		setDOpen(!dOpen);
-
 		props.movieDetailHandler(movie.id);
 	}
 
@@ -113,4 +115,4 @@ const PoperContainer = props => {
 	);
 };
 
-export default PoperContainer;
+export default withRouter(PoperContainer);

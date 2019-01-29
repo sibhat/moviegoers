@@ -1,13 +1,7 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import List from "./index";
 import PoperContainer from "./PoperContainer";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
-import configureStore from "../../../reducer";
-import App from "../../../App";
-
-const store = configureStore();
 
 describe("<List />", () => {
 	it("renders component without problem", () => {
