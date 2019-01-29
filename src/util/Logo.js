@@ -42,7 +42,7 @@ class Logo extends React.Component {
 						<defs />
 						<title>{this.props.title}</title>
 						<path
-							class="cls-1"
+							className="cls-1"
 							d="M960.84,975.71V24S370,836.88,485,823.44,28.16,24,28.16,24V975.71L90,976,76,229S408,927,486,927,900,235,900,235l-5,741Z"
 							transform="translate(-26.16 -17.85)"
 						/>

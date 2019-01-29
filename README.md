@@ -1,6 +1,6 @@
 ## Project title
 
-Moviegoers is an app to keep intended to keep its users up-to-date with movies and tv shows.
+Moviegoers is an app intended to keep its users up-to-date with movies and tv shows.
 
 ## Build status
 
