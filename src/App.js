@@ -13,12 +13,20 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { styles } from "./AppJSS";
 import { config } from "./feature/list/store/action";
 import { connect } from "react-redux";
+import Logo from "./util/Logo";
+import TransitionGroup from "react-transition-group/TransitionGroup"; // ES6
 class App extends React.Component {
 	state = {
-		open: false
+		open: false,
+		logo: true
 	};
 	componentDidMount() {
 		this.props.config();
+		setTimeout(() => {
+			this.setState({
+				logo: false
+			});
+		}, 4000);
 	}
 
 	handleDrawerOpen = () => {
@@ -74,6 +82,12 @@ class App extends React.Component {
 				/>
 			);
 		}
+		if (this.state.logo)
+			return (
+				<TransitionGroup component="div">
+					<Logo />
+				</TransitionGroup>
+			);
 		return (
 			<div className={classes.root}>
 				<CssBaseline /> {/* reset css for all devices */}
