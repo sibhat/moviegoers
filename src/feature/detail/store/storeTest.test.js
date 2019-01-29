@@ -64,7 +64,7 @@ let detailMovieMockReturnResult = {
 	title: "Dilwale Dulhania Le Jayenge",
 	video: false,
 	vote_average: 9.1,
-	vote_count: 1967
+	vote_count: 1969
 };
 describe("actions", () => {
 	afterEach(() => {
