@@ -7,7 +7,7 @@ import Main from "./feature/main/container";
 import Nav from "./feature/nav/presentational";
 import compose from "recompose/compose";
 
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { styles } from "./AppJSS";
@@ -30,66 +30,90 @@ class App extends React.Component {
 	};
 
 	render() {
+		// if (!this.props.request_success) return <h1> waiting</h1>;
+		// currentChoice initial state is 0 represent for all option.
+		// currentChoice state 1 represent "TV"
+		// currentChoice state 2 represent "Movie"
+		// currentChoice used for filtering results upon user choice from footer components
+		// option intial state state => {0: { id: 0,name: "All"},1: {id: 1,name: "TV"},2: {id: 2,name: "Movie"},currentChoice: 0}
+
 		let { classes, option, currentChoice } = this.props;
-		let allOption;
+		let result;
+
 		if (!currentChoice) {
 			option = Object.entries(option).filter(
 				(item, index, arry) =>
 					item[1].id !== 0 && index !== arry.length - 1
 			);
-			allOption = option.map(option => (
-				<ListContainer option={option[1]["name"]} key={option[1].id} />
-			));
+			result = (
+				<Route
+					path="/"
+					exact
+					render={props =>
+						option.map(option => (
+							<ListContainer
+								option={option[1]["name"]}
+								key={option[1].id}
+								{...props}
+							/>
+						))
+					}
+				/>
+			);
 		} else {
-			allOption = (
-				<ListContainer option={option[currentChoice]["name"]} />
+			result = (
+				<Route
+					path="/"
+					exact
+					render={props => (
+						<ListContainer
+							option={option[currentChoice]["name"]}
+							{...props}
+						/>
+					)}
+				/>
 			);
 		}
-
 		return (
 			<div className={classes.root}>
-				<CssBaseline />
+				<CssBaseline /> {/* reset css for all devices */}
 				<Nav
 					classes={classes}
 					open={this.state.open}
 					handleDrawerOpen={this.handleDrawerOpen}
 					handleDrawerClose={this.handleDrawerClose}
 				/>
-
 				<main className={classes.content}>
-					<Switch>
-						<Route
-							path="/"
-							exact
-							render={props => (
-								<React.Fragment>
-									<Main
-										className={classes.main}
-										option={option}
-										currentChoice={currentChoice}
-									/>
-
-									{allOption}
-								</React.Fragment>
-							)}
-						/>
-						<Route
-							path="/search"
-							render={props => <GridListForSearch {...props} />}
-						/>
-						<Route
-							path="/movies/:id"
-							render={props => (
-								<DetailContainer {...props} option={"movie"} />
-							)}
-						/>
-						<Route
-							path="/tv/:id"
-							render={props => (
-								<DetailContainer {...props} option={"tv"} />
-							)}
-						/>
-					</Switch>
+					<Route
+						path="/"
+						exact
+						render={props => (
+							<Main
+								className={classes.main}
+								option={option}
+								currentChoice={currentChoice}
+							/>
+							/* ^^ main foucs of the app, and Landing page to display trailer for specific movie */
+						)}
+					/>
+					{result}
+					{/* ^^ display gridlist of all catagories of tv and movies*/}
+					<Route
+						path="/search"
+						render={props => <GridListForSearch {...props} />}
+					/>
+					<Route
+						path="/movies/:id"
+						render={props => (
+							<DetailContainer {...props} option={"movie"} />
+						)}
+					/>
+					<Route
+						path="/tv/:id"
+						render={props => (
+							<DetailContainer {...props} option={"tv"} />
+						)}
+					/>
 				</main>
 				<FooterContainer />
 			</div>
@@ -99,14 +123,15 @@ class App extends React.Component {
 
 const DispatchStateToProps = state => ({
 	option: state.list.option,
-	currentChoice: state.list.option.currentChoice
+	currentChoice: state.list.option.currentChoice,
+	request_success: state.list.request_success
 });
 
 export default compose(
 	withRouter,
-	withStyles(styles),
 	connect(
 		DispatchStateToProps,
 		{ config }
-	)
+	),
+	withStyles(styles)
 )(App);

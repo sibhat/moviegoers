@@ -23,7 +23,6 @@ class DetailContainer extends Component {
 		this.props.listenCategory(this.props.option.toLowerCase(), movieId);
 	};
 	render() {
-		console.log("props at detail] ", this.props);
 		let { url, size, baseUrl } = this.props;
 		if (!this.props.request_success) return <h1>waiting</h1>;
 		return (

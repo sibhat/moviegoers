@@ -44,12 +44,11 @@ const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
 				</Toolbar>
 			</AppBar>
 			<Drawer
-				variant="permanent"
+				variant="persistent"
+				anchor="left"
+				className={classes.drawer}
 				classes={{
-					paper: classNames(
-						classes.drawerPaper,
-						!open && classes.drawerPaperClose
-					)
+					paper: classes.drawerPaper
 				}}
 				open={open}
 			>

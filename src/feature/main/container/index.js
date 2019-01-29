@@ -8,25 +8,21 @@ class MainContainer extends Component {
 		this.state = {};
 	}
 	componentDidMount() {
+		// after 1 sec initial app render, get a trailer for the first tv show on popualr category
+		// E.g => this.props.listenCategory("tv", "12345")
 		setTimeout(() => {
-			let { option, currentChoice, request_success } = this.props;
+			let { option, request_success } = this.props;
 			if (request_success && option) {
-				if (!currentChoice) {
-					this.props.listenCategory(
-						option[0][1]["name"].toLowerCase(),
-						this.props.data.results[0]["id"]
-					);
-				} else {
-					this.props.listenCategory(
-						option[1]["name"].toLowerCase(),
-						this.props.data.results[0]["id"]
-					);
-				}
+				this.props.listenCategory(
+					option[0][1]["name"].toLowerCase(),
+					this.props.data.results[0]["id"]
+				);
 			}
 		}, 1000);
 	}
 
 	render() {
+		// check if there is trailer
 		if (!this.props.currentChoiceMovie) {
 			return <div className={this.props.className}>waiting</div>;
 		}

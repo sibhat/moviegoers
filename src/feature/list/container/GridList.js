@@ -9,12 +9,17 @@ class GridList extends Component {
 		this.state = {};
 	}
 	componentDidMount() {
+		// for eachOption category, make Get request!
+		// E.g => this.props.getMovieList("movie", "popular")
+
 		let { url, option } = this.props;
 		this.props.getMovieList(option.toLowerCase(), url);
 		// this.props.genres(`genre/${option.toLowerCase()}`);
 	}
 	movieDetailHandler = movieId => {
-		// console.log(this.props.option);
+		// for eachOption category movie or a single tv show, make Get request for more info!
+		// E.g => this.props.listenCategory("movie", "34322")
+
 		this.props.listenCategory(this.props.option.toLowerCase(), movieId);
 	};
 	render() {
@@ -28,6 +33,7 @@ class GridList extends Component {
 				size={size}
 				baseUrl={baseUrl}
 				movieDetailHandler={this.movieDetailHandler}
+				{...this.props}
 			/>
 		);
 	}

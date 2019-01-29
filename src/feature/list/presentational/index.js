@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import PoperContainer from "./PoperContainer";
+import Card from "./PoperContainer";
 
 const useStyles = theme => {
 	// console.log("theme", theme);q
@@ -74,12 +74,7 @@ const useStyles = theme => {
 				opacity: 1
 			}
 		},
-		// "@global": {
-		// 	"li > div:nth-of-type(1)": {
-		// 		display: "block !important",
-		// 		backgroundColor: "yellow"
-		// 	}
-		// },
+
 		img: {
 			width: "100%",
 			position: "absolute",
@@ -143,7 +138,7 @@ function List(props) {
 	if (!props.data.results || props.data.results.length < 1) {
 		return (
 			<div className={styles.root + " mrow"}>
-				<h1>waiting presentation {props.display}</h1>
+				<h1> waiting presentation {props.display}</h1>
 			</div>
 		);
 	}
@@ -153,8 +148,9 @@ function List(props) {
 				{props.display}
 			</Typography>
 			<div className={styles.root + " mrow"}>
+				{/*  movie/tv shows arrey = props.data.result */}
 				{props.data.results.map(movie => (
-					<PoperContainer
+					<Card
 						movie={movie}
 						styles={styles}
 						{...props}

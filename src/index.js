@@ -26,7 +26,6 @@ const theme = createMuiTheme({
 		type: "dark"
 	}
 });
-console.log("theme", theme);
 ReactDOM.render(
 	<MuiThemeProvider theme={theme}>
 		<Provider store={store}>

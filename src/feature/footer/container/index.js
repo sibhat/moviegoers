@@ -4,15 +4,9 @@ import { currentOptionHandler } from "../../list/store/action";
 import { connect } from "react-redux";
 import Footer from "../presentational";
 class FooterContainer extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// }
-
 	listenCategoryHanlder = id => {
+		// listen for user choice b/w movie or tv show or all
 		this.props.currentOptionHandler(id);
-		// 	setTimeout(() => {
-		// 		// this.props.
-		// 	}, 100);
 	};
 	render() {
 		let choices = this.props.data;
@@ -27,7 +21,6 @@ class FooterContainer extends Component {
 	}
 }
 const MapStateToProps = state => {
-	// let data;
 	return {
 		data: state.list.option,
 		currentChoice: state.list.option.currentChoice
