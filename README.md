@@ -18,13 +18,13 @@ Build status of continus integration i.e. travis. -
 -   [Redux-thunk](https://github.com/reduxjs/redux-thunk)
 -   [Material-UI](https://material-ui.com)
 -   [react-spring](https://react-spring.surge.sh)
+-   [animejs](https://animejs.com)
 -   [Jest](https://jestjs.io)
 -   [Enzyme](https://airbnb.io/enzyme)
 -   [Travis](https://travis-ci.com)
 
 ## Features
 
-What makes your project stand out?
 This app uses redux for state managment for all its features, and Material-UI for layout of all components(which is fun to learn jss in two days). For more feature, I will add more testing strategy for each components.
 
 ## Installation

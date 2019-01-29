@@ -1,0 +1,21 @@
+.cls-1 {
+	fill: none;
+	stroke: #fff;
+	stroke-miterlimit: 10;
+	stroke-width: 14px;
+}
+.line-drawing-demo {
+	width: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: transparent;
+	padding: 10px;
+}
+.logo_page {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	background-color: #770227;
+}
