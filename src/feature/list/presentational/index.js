@@ -17,7 +17,10 @@ const useStyles = theme => {
 			// alignContent: "center",
 			position: "relative",
 			transition: "all .3s",
-			backgroundColor: "transparent"
+			backgroundColor: "transparent",
+			[theme.breakpoints.down("sm")]: {
+				height: "260px"
+			}
 		},
 		catagory: {
 			display: "inline-block",
@@ -41,6 +44,9 @@ const useStyles = theme => {
 				boxShadow: "9px 6px 17px 0px rgba(0,0,0,0.4)",
 				paddingTop: 5,
 				transform: "translateY(-5px)"
+			},
+			[theme.breakpoints.down("sm")]: {
+				width: "160px"
 			}
 		},
 		popper: {

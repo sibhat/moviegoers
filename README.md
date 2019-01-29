@@ -1,23 +1,12 @@
 ## Project title
 
-A little info about your project and/ or overview that explains **what** the project is about.
 Moviegoers is an app to keep intended to keep its users up-to-date with movies and tv shows.
 
 ## Build status
 
-Build status of continus integration i.e. travisEx. -
+Build status of continus integration i.e. travis. -
 
 [![Build Status](https://travis-ci.com/sibhat/moviegoers.svg?branch=master)](https://travis-ci.com/sibhat/moviegoers)
-
-## Code style
-
-If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-
-## Screenshots
-
-Include logo/demo screenshot etc.
 
 ## Tech/framework used
 
@@ -32,7 +21,6 @@ Include logo/demo screenshot etc.
 -   [Jest](https://jestjs.io)
 -   [Enzyme](https://airbnb.io/enzyme)
 -   [Travis](https://travis-ci.com)
--
 
 ## Features
 
