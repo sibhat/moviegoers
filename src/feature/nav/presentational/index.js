@@ -13,6 +13,7 @@ import MoodBadIcon from "@material-ui/icons/MoodBad";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 import Search from "../../search/container";
+import Logo from "../../../util/Logo";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
@@ -38,7 +39,10 @@ const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
 						<MenuIcon />
 					</IconButton>
 					<Link to="/" className={classes.title}>
-						MovieGoers
+						<Logo
+							classesName={classes.navLogo}
+							pathClassesName={classes.pathNavLogo}
+						/>
 					</Link>
 					<Search classes={classes} />
 				</Toolbar>

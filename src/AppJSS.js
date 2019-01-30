@@ -47,6 +47,17 @@ export const styles = theme => ({
 		letterSpacing: "0.0075em",
 		textDecoration: "none"
 	},
+	pathNavLogo: {
+		strokeWidth: 5,
+		fill: "#f4c32f",
+		stroke: "#f4c32f",
+		strokeMiterlimit: 10
+	},
+	navLogo: {
+		width: "200px",
+		display: "inline-block",
+		position: "relative"
+	},
 	drawerPaper: {
 		position: "relative",
 		whiteSpace: "nowrap",
