@@ -38,7 +38,7 @@ class MainContainer extends Component {
 		return (
 			<Detail
 				currentChoiceMovie={this.props.currentChoiceMovie}
-				className={this.props.className.main}
+				className={this.props.className}
 			/>
 		);
 	}
