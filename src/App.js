@@ -15,6 +15,7 @@ import { config } from "./feature/list/store/action";
 import { connect } from "react-redux";
 import Logo from "./util/Logo";
 import TransitionGroup from "react-transition-group/TransitionGroup"; // ES6
+
 class App extends React.Component {
 	state = {
 		open: false,
@@ -22,13 +23,15 @@ class App extends React.Component {
 	};
 	componentDidMount() {
 		this.props.config();
-		setTimeout(() => {
-			this.setState({
-				logo: false
-			});
-		}, 4000);
 	}
-
+	onSVGAnimeComplete = () => {
+		this.setState({
+			logo: false
+		});
+		// this.setState((prevState, props) => {
+		// 	return { logo: !prevState.logo };
+		// });
+	};
 	handleDrawerOpen = () => {
 		this.setState({ open: true });
 	};
@@ -85,7 +88,7 @@ class App extends React.Component {
 		if (this.state.logo)
 			return (
 				<TransitionGroup component="div">
-					<Logo />
+					<Logo cb={this.onSVGAnimeComplete} />
 				</TransitionGroup>
 			);
 		return (

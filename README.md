@@ -1,4 +1,4 @@
-## Project title
+## Moviegoers
 
 Moviegoers is an app intended to keep its users up-to-date with movies and tv shows.
 
@@ -34,6 +34,10 @@ This app uses redux for state managment for all its features, and Material-UI fo
 Once you are logged in you can go to _settings_ -> [_api_](https://www.themoviedb.org/settings/api) and create an api application, and save the key in .env with REACT_APP_MOVIEDB_API variable name.
 
 [The Movie Database API Documentation](https://developers.themoviedb.org/3/getting-started/introduction)
+
+```js
+npm start
+```
 
 ## Tests
 

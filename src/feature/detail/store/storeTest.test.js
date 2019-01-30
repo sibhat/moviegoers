@@ -34,7 +34,7 @@ let detailMovieMockReturnResult = {
 	original_title: "दिलवाले दुल्हनिया ले जायेंगे",
 	overview:
 		"Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.",
-	popularity: 17.549,
+	popularity: 17.133,
 	poster_path: "/uC6TTUhPpQCmgldGyYveKRAu8JN.jpg",
 	production_companies: [
 		{
@@ -64,7 +64,7 @@ let detailMovieMockReturnResult = {
 	title: "Dilwale Dulhania Le Jayenge",
 	video: false,
 	vote_average: 9.1,
-	vote_count: 1969
+	vote_count: 1970
 };
 describe("actions", () => {
 	afterEach(() => {

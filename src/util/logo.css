@@ -1,11 +1,12 @@
 .cls-1 {
 	fill: none;
-	stroke: #fff;
+	stroke: #f4c32f;
 	stroke-miterlimit: 10;
 	stroke-width: 1px;
 }
 .line-drawing-demo {
-	width: 600px;
+	width: 100%;
+	max-width: 600px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
