@@ -27,7 +27,7 @@ class MainContainer extends Component {
 		// check if there is trailer
 		if (!this.props.currentChoiceMovie) {
 			return (
-				<div className={this.props.className.main}>
+				<div className={this.props.className}>
 					<CircularProgress
 						className={this.props.className.progress}
 						color="secondary"
