@@ -25,7 +25,7 @@ Build status of continus integration i.e. travis. -
 
 ## Features
 
-This app uses redux for state managment for all its features, and Material-UI for layout of all components(which is fun to learn jss in two days). For more feature, I will add more testing strategy for each components.
+This app uses redux for state managment, and Material-UI for layout of all components(which was fun to learn jss in two days). As to more feature coming soon, I am looking in to testing strategy for each components, to reduce an expected bugs.
 
 ## Installation
 
@@ -49,8 +49,9 @@ npm test
 
 ## How to use?
 
-When I designed the app, my idea was giving my users more information without asking them to click(less click -> more info). When the app is loaded initially, there will be a main section (react component) that display a trailer for the first popular tv show. As you scroll down, there will be stack of results, and on hover, there will be more info about that specific show/movie. Clicking one of the cards, will route you to different page, where you can read more info, and see recommended result based on your selection.
-User can also search movie at the time, and in near feature, users will also be able to search for tv shows as well.
+When I designed the app, my idea was giving my users more informations without requireing them to click(less click -> more info). The app starts initially loading a logo, to get the users exited about whats coming. Right after that,the main section (main react component) that display a trailer for the first popular tv show will be displayed. As you scroll down, there will be stack of results (shows and movies), and on hover, there will be more info about that specific show/movie. Clicking one of the cards, will route you to different page, where you can read more info, and see recommended result based on your selection.
+
+I am working on a feature, where users will also be able to search for tv shows as well, but currently, user can search for a movie.
 
 ## Contribute
 

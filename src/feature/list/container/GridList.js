@@ -3,6 +3,8 @@ import { getMovieList } from "../store/action";
 import { listenCategory } from "../../main/store/action";
 import { connect } from "react-redux";
 import List from "../presentational";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 class GridList extends Component {
 	constructor(props) {
 		super(props);
@@ -24,7 +26,7 @@ class GridList extends Component {
 	};
 	render() {
 		let { size, baseUrl, url, display } = this.props;
-		if (this.props.pending) return <h1>waiting</h1>;
+		if (this.props.pending) return <CircularProgress color="secondary" />;
 		return (
 			<List
 				data={this.props[url]}

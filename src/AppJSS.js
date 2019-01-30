@@ -47,6 +47,9 @@ export const styles = theme => ({
 		letterSpacing: "0.0075em",
 		textDecoration: "none"
 	},
+	progress: {
+		margin: theme.spacing.unit * 2
+	},
 	pathNavLogo: {
 		strokeWidth: 5,
 		fill: "#f4c32f",
