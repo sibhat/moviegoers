@@ -1,4 +1,7 @@
 language: node_js
+env:
+    - REACT_APP_MOVIEDB_API=4d9dd02575caf8f6d545ff421762869e
+
 node_js:
     - 8
 script: npm  test
