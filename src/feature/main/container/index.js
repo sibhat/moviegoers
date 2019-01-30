@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { getMovieDetail, listenCategory } from "../store/action";
 import { connect } from "react-redux";
 import Detail from "../presentational";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 class MainContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -24,12 +26,19 @@ class MainContainer extends Component {
 	render() {
 		// check if there is trailer
 		if (!this.props.currentChoiceMovie) {
-			return <div className={this.props.className}>waiting</div>;
+			return (
+				<div className={this.props.className.main}>
+					<CircularProgress
+						className={this.props.className.progress}
+						color="secondary"
+					/>
+				</div>
+			);
 		}
 		return (
 			<Detail
 				currentChoiceMovie={this.props.currentChoiceMovie}
-				className={this.props.className}
+				className={this.props.className.main}
 			/>
 		);
 	}

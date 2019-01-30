@@ -1,6 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, CircularProgress } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+
 import Card from "./PoperContainer";
 
 const useStyles = theme => {
@@ -165,7 +166,10 @@ function List(props) {
 	if (!props.data.results || props.data.results.length < 1) {
 		return (
 			<div className={styles.root + " mrow"}>
-				<h1> waiting presentation {props.display}</h1>
+				<CircularProgress
+					// className={props.className.progress}
+					color="secondary"
+				/>
 			</div>
 		);
 	}

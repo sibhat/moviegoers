@@ -106,7 +106,7 @@ class App extends React.Component {
 						exact
 						render={props => (
 							<Main
-								className={classes.main}
+								className={classes}
 								option={option}
 								currentChoice={currentChoice}
 							/>

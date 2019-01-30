@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getMovieDetail, getMovieRecommendation } from "../store/action";
 import List from "../../list/presentational/index";
 import { listenCategory } from "../../main/store/action";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { connect } from "react-redux";
 import Detail from "../presentational";
@@ -24,7 +25,7 @@ class DetailContainer extends Component {
 	};
 	render() {
 		let { url, size, baseUrl } = this.props;
-		if (!this.props.request_success) return <h1>waiting</h1>;
+		if (!this.props.request_success) return <CircularProgress />;
 		return (
 			<>
 				<Detail
