@@ -46,18 +46,19 @@ const useStyles = theme => {
 				transform: "translateY(-5px)"
 			},
 			[theme.breakpoints.down("sm")]: {
-				width: "160px"
+				width: "160px",
+				height: "237px"
 			}
 		},
 		popper: {
 			position: "absolute",
 			height: "100%",
 			display: "flex",
-			maxWidth: 1200,
+			width: 267,
 			visibility: "hidden",
 			flexDirection: "column",
 			justifyContent: "space-between",
-			bottom: 0,
+			top: 0,
 			zIndex: 0,
 			backgroundColor: "rgba(0,0,0,0.8)",
 			willChange: "transform",
@@ -69,6 +70,9 @@ const useStyles = theme => {
 				visibility: "visibile"
 
 				// animation: "myIn .4s ease-in-out, visibility 0s 0.275s"
+			},
+			[theme.breakpoints.down("sm")]: {
+				width: "160px"
 			}
 		},
 		"@keyframes myIn": {
@@ -91,7 +95,10 @@ const useStyles = theme => {
 		bgCard: {
 			width: "100%",
 			marginTop: -7,
-			opacity: 0.85
+			opacity: 0.85,
+			[theme.breakpoints.down("sm")]: {
+				display: "none"
+			}
 		},
 
 		bgCardSpan: {
@@ -110,9 +117,13 @@ const useStyles = theme => {
 		description: {
 			display: "block",
 			padding: "0 20px",
+			color: theme.palette.text.secondary,
 			transition: theme.transitions.create([`all`], {
 				duration: theme.transitions.duration.complex
-			})
+			}),
+			[theme.breakpoints.down("sm")]: {
+				display: "none"
+			}
 		},
 
 		flex: {
@@ -120,17 +131,27 @@ const useStyles = theme => {
 			justifyContent: "space-evenly",
 			fontSize: "18px"
 		},
+		cardFooter: {
+			display: "flex",
+			justifyContent: "space-evenly",
+			fontSize: "18px",
+			[theme.breakpoints.down("sm")]: {
+				position: "absolute",
+				height: "100%",
+				width: "100%",
+				flexDirection: "column",
+				justifyContent: "space-evenly",
+				alignItems: "center"
+			}
+		},
 		dialog: {
 			minWidth: 500,
 			maxWidth: 600
 			// display: "flex"
 		},
-		main: {
-			// width: 200
-			flex: 1,
-			display: "flex",
-			justifyContent: "space-evenly",
-			alignItems: "center"
+		trailer: {
+			width: "100%",
+			height: "69vh"
 		},
 		dialogSection: {
 			flex: 1,

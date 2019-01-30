@@ -2,10 +2,10 @@
 	fill: none;
 	stroke: #fff;
 	stroke-miterlimit: 10;
-	stroke-width: 14px;
+	stroke-width: 1px;
 }
 .line-drawing-demo {
-	width: 200px;
+	width: 600px;
 	position: absolute;
 	top: 50%;
 	left: 50%;

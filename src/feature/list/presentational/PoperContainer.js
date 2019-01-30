@@ -46,7 +46,7 @@ const Card = props => {
 						{movie.overview.slice(0, 200)} {"..."}
 					</Typography>
 					<Divider />
-					<div className={classes.flex}>
+					<div className={classes.cardFooter}>
 						<Chip
 							label={`
 							${(movie.release_date && movie.release_date.slice(0, 4)) ||
@@ -67,7 +67,6 @@ const Card = props => {
 							className={classes.chip}
 						/>
 					</div>
-
 					<Divider />
 				</Paper>
 			</div>
@@ -77,36 +76,19 @@ const Card = props => {
 				maxWidth="md"
 				onClose={handlerFunc}
 			>
-				<div className={classes.flex}>
-					<DialogContent className={classes.main}>
-						<Main />
-					</DialogContent>
-					<div className={classes.dialogSection}>
-						<Typography className={classes.title}>
-							{movie.title || movie.name}
-						</Typography>
-						<div className={classes.flex}>
-							<Typography className={classes.description}>
-								{(movie.release_date &&
-									movie.release_date.slice(0, 4)) ||
-									(movie.first_air_date &&
-										movie.first_air_date.slice(0, 4))}
-							</Typography>
-							<Typography className={classes.description}>
-								{movie.vote_average || movie.popularity}
-							</Typography>
-						</div>
-						<Divider />
-						<Typography className={classes.description}>
-							{movie.overview}
-						</Typography>
-					</div>
-				</div>
+				<DialogContent>
+					<Main className={classes.trailer} />
+				</DialogContent>
+
 				<DialogActions>
-					<Button onClick={handlerFunc} color="primary" autoFocus>
+					<Button onClick={handlerFunc} color="secondary" autoFocus>
 						Close
 					</Button>
-					<Button onClick={moreInfoHandler} color="primary" autoFocus>
+					<Button
+						onClick={moreInfoHandler}
+						color="secondary"
+						autoFocus
+					>
 						more info
 					</Button>
 				</DialogActions>

@@ -20,8 +20,8 @@ function Footer({ listenCategoryHanlder, choices, currentChoice, classes }) {
 				value={currentChoice}
 				centered
 				// className={classes.root}
-				indicatorColor="primary"
-				textColor="primary"
+				indicatorColor="secondary"
+				textColor="secondary"
 				variant="fullWidth"
 				scrollButtons="off"
 			>
@@ -32,6 +32,7 @@ function Footer({ listenCategoryHanlder, choices, currentChoice, classes }) {
 								key={choice[1]["id"]}
 								label={choice[1]["name"]}
 								className={classes.tabs}
+								color="secondary"
 								onClick={() =>
 									listenCategoryHanlder(choice[1]["id"])
 								}
