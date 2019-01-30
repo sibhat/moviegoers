@@ -25,7 +25,7 @@ Build status of continus integration i.e. travis. -
 
 ## Features
 
-This app uses redux for state managment for all its features, and Material-UI for layout of all components(which is fun to learn jss in two days). For more feature, I will add more testing strategy for each components.
+This app uses redux for state managment, and Material-UI for layout of all components(which was fun to learn jss in two days). As to more feature coming soon, I am looking in to testing strategy for each components, to reduce an expected bugs.
 
 ## Installation
 
