@@ -25,7 +25,7 @@ const theme = createMuiTheme({
 			main: "#ffac00"
 		},
 		text: {
-			primary: "#ffac00"
+			primary: "#BF9B30"
 		},
 		contrastThreshold: 9,
 		type: "dark"
