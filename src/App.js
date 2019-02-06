@@ -19,7 +19,7 @@ import TransitionGroup from "react-transition-group/TransitionGroup"; // ES6
 class App extends React.Component {
 	state = {
 		open: false,
-		logo: true
+		logo: false
 	};
 	componentDidMount() {
 		this.props.config();

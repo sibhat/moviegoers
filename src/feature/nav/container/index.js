@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getMovieDetail } from "../store/action";
 import { connect } from "react-redux";
-import Detail from "../presentational";
+import Nav from "../presentational";
 class DetailContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -11,7 +11,7 @@ class DetailContainer extends Component {
 		this.props.getMovieDetail(this.props.match.params.id);
 	}
 	render() {
-		return <Detail data={this.props.data} />;
+		return <Nav data={this.props.data} />;
 	}
 }
 const MapPropsToState = state => ({

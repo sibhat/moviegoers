@@ -13,6 +13,7 @@ import MoodBadIcon from "@material-ui/icons/MoodBad";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 import Search from "../../search/container";
+import Auth from "../../auth/Auth";
 import Logo from "../../../util/Logo";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
@@ -45,6 +46,7 @@ const index = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
 						/>
 					</Link>
 					<Search classes={classes} />
+					<Auth />
 				</Toolbar>
 			</AppBar>
 			<Drawer
