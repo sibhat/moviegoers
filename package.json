@@ -31,9 +31,7 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test -u",
-		"eject": "react-scripts eject",
-		"styleguide": "styleguidist server",
-		"styleguide:build": "styleguidist build"
+		"eject": "react-scripts eject"
 	},
 	"peerDependencies": {
 		"react": "*",
@@ -52,7 +50,6 @@
 		"enzyme": "^3.8.0",
 		"enzyme-adapter-react-16": "^1.8.0",
 		"fetch-mock": "^7.3.0",
-		"react-styleguidist": "^8.0.6",
 		"redux-devtools-extension": "^2.13.7",
 		"redux-mock-store": "^1.5.3"
 	}
