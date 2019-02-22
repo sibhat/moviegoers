@@ -4,9 +4,10 @@ Moviegoers is an app intended to keep its users up-to-date with movies and tv sh
 
 ## Build status
 
-Build status of continus integration i.e. travis. -
+Build and Deploy status of continus integration i.e. travis. netlify -
 
 [![Build Status](https://travis-ci.com/sibhat/moviegoers.svg?branch=master)](https://travis-ci.com/sibhat/moviegoers)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cd25352c-397f-480f-afed-1e915ab56089/deploy-status)](https://app.netlify.com/sites/moviegoers/deploys)
 
 ## Tech/framework used
 
