@@ -1,0 +1,22 @@
+.cls-1 {
+	fill: none;
+	stroke: #f4c32f;
+	stroke-miterlimit: 10;
+	stroke-width: 1px;
+}
+.line-drawing-demo {
+	width: 100%;
+	max-width: 600px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: transparent;
+	padding: 10px;
+}
+.logo_page {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	background-color: #770227;
+}

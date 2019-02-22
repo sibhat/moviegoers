@@ -1,27 +1,28 @@
 import React from "react";
 import { Paper, Typography, Divider, Button } from "@material-ui/core";
 import { Dialog, DialogActions, DialogContent, Chip } from "@material-ui/core";
-
-import { withRouter } from "react-router-dom";
 import "./hover.css";
-
 import Main from "../../main/container";
+import { withRouter } from "react-router-dom";
 
-const PoperContainer = props => {
+const Card = props => {
 	let { movie, styles, classes, history } = props;
+
+	// dopen for dialog state managment
 	const [dOpen, setDOpen] = React.useState(false);
+
 	function moreInfoHandler() {
 		let option = movie.title ? "movies" : "tv";
 		history.push(`/${option}/${movie.id}`);
 	}
+
 	function handlerFunc() {
 		setDOpen(!dOpen);
-
 		props.movieDetailHandler(movie.id);
 	}
 
 	return (
-		<>
+		<React.Fragment>
 			<div
 				className={styles.card + " card"}
 				key={movie.id}
@@ -45,7 +46,7 @@ const PoperContainer = props => {
 						{movie.overview.slice(0, 200)} {"..."}
 					</Typography>
 					<Divider />
-					<div className={classes.flex}>
+					<div className={classes.cardFooter}>
 						<Chip
 							label={`
 							${(movie.release_date && movie.release_date.slice(0, 4)) ||
@@ -66,53 +67,34 @@ const PoperContainer = props => {
 							className={classes.chip}
 						/>
 					</div>
-
 					<Divider />
 				</Paper>
 			</div>
 			<Dialog
-				classes={classes.dialog}
-				fullWidth={"true"}
+				fullWidth={true}
 				open={dOpen}
 				maxWidth="md"
 				onClose={handlerFunc}
 			>
-				<div className={classes.flex}>
-					<DialogContent className={classes.main}>
-						<Main />
-					</DialogContent>
-					<div className={classes.dialogSection}>
-						<Typography className={classes.title}>
-							{movie.title || movie.name}
-						</Typography>
-						<div className={classes.flex}>
-							<Typography className={classes.description}>
-								{(movie.release_date &&
-									movie.release_date.slice(0, 4)) ||
-									(movie.first_air_date &&
-										movie.first_air_date.slice(0, 4))}
-							</Typography>
-							<Typography className={classes.description}>
-								{movie.vote_average || movie.popularity}
-							</Typography>
-						</div>
-						<Divider />
-						<Typography className={classes.description}>
-							{movie.overview}
-						</Typography>
-					</div>
-				</div>
+				<DialogContent>
+					<Main className={classes.trailer} />
+				</DialogContent>
+
 				<DialogActions>
-					<Button onClick={handlerFunc} color="primary" autoFocus>
+					<Button onClick={handlerFunc} color="secondary" autoFocus>
 						Close
 					</Button>
-					<Button onClick={moreInfoHandler} color="primary" autoFocus>
+					<Button
+						onClick={moreInfoHandler}
+						color="secondary"
+						autoFocus
+					>
 						more info
 					</Button>
 				</DialogActions>
 			</Dialog>
-		</>
+		</React.Fragment>
 	);
 };
 
-export default withRouter(PoperContainer);
+export default withRouter(Card);

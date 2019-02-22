@@ -13,6 +13,7 @@ const useStyles = () => {
 			overflow: "hidden"
 		},
 		bgPhoto: {
+			width: "100vw",
 			minWidth: "500px",
 			overflow: "scroll",
 			backgroundImage:

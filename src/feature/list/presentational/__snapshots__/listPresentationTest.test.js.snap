@@ -92,7 +92,7 @@ ShallowWrapper {
 exports[`<PoperContainer /> renders component without problem 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <withRouter(PoperContainer) />,
+  Symbol(enzyme.__unrendered__): <withRouter(Card) />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],

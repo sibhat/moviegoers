@@ -47,6 +47,20 @@ export const styles = theme => ({
 		letterSpacing: "0.0075em",
 		textDecoration: "none"
 	},
+	progress: {
+		margin: theme.spacing.unit * 2
+	},
+	pathNavLogo: {
+		strokeWidth: 5,
+		fill: "#f4c32f",
+		stroke: "#f4c32f",
+		strokeMiterlimit: 10
+	},
+	navLogo: {
+		width: "200px",
+		display: "inline-block",
+		position: "relative"
+	},
 	drawerPaper: {
 		position: "relative",
 		whiteSpace: "nowrap",
@@ -56,16 +70,15 @@ export const styles = theme => ({
 			duration: theme.transitions.duration.enteringScreen
 		})
 	},
+
 	drawerPaperClose: {
 		overflowX: "hidden",
+
 		transition: theme.transitions.create("width", {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen
 		}),
-		width: theme.spacing.unit * 7,
-		[theme.breakpoints.up("sm")]: {
-			width: theme.spacing.unit * 9
-		}
+		width: 0
 	},
 	appBarSpacer: theme.mixins.toolbar,
 	content: {
@@ -101,6 +114,10 @@ export const styles = theme => ({
 			marginLeft: theme.spacing.unit,
 			width: "auto"
 		}
+	},
+	drawer: {
+		width: "0px",
+		flexShrink: 0
 	},
 	searchIcon: {
 		width: theme.spacing.unit * 9,

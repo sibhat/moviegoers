@@ -1,7 +1,8 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, CircularProgress } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import PoperContainer from "./PoperContainer";
+
+import Card from "./PoperContainer";
 
 const useStyles = theme => {
 	// console.log("theme", theme);q
@@ -17,7 +18,10 @@ const useStyles = theme => {
 			// alignContent: "center",
 			position: "relative",
 			transition: "all .3s",
-			backgroundColor: "transparent"
+			backgroundColor: "transparent",
+			[theme.breakpoints.down("sm")]: {
+				height: "260px"
+			}
 		},
 		catagory: {
 			display: "inline-block",
@@ -41,17 +45,21 @@ const useStyles = theme => {
 				boxShadow: "9px 6px 17px 0px rgba(0,0,0,0.4)",
 				paddingTop: 5,
 				transform: "translateY(-5px)"
+			},
+			[theme.breakpoints.down("sm")]: {
+				width: "160px",
+				height: "237px"
 			}
 		},
 		popper: {
 			position: "absolute",
 			height: "100%",
 			display: "flex",
-			maxWidth: 1200,
+			width: 267,
 			visibility: "hidden",
 			flexDirection: "column",
 			justifyContent: "space-between",
-			bottom: 0,
+			top: 0,
 			zIndex: 0,
 			backgroundColor: "rgba(0,0,0,0.8)",
 			willChange: "transform",
@@ -63,6 +71,9 @@ const useStyles = theme => {
 				visibility: "visibile"
 
 				// animation: "myIn .4s ease-in-out, visibility 0s 0.275s"
+			},
+			[theme.breakpoints.down("sm")]: {
+				width: "160px"
 			}
 		},
 		"@keyframes myIn": {
@@ -74,12 +85,7 @@ const useStyles = theme => {
 				opacity: 1
 			}
 		},
-		// "@global": {
-		// 	"li > div:nth-of-type(1)": {
-		// 		display: "block !important",
-		// 		backgroundColor: "yellow"
-		// 	}
-		// },
+
 		img: {
 			width: "100%",
 			position: "absolute",
@@ -90,7 +96,10 @@ const useStyles = theme => {
 		bgCard: {
 			width: "100%",
 			marginTop: -7,
-			opacity: 0.85
+			opacity: 0.85,
+			[theme.breakpoints.down("sm")]: {
+				display: "none"
+			}
 		},
 
 		bgCardSpan: {
@@ -109,9 +118,13 @@ const useStyles = theme => {
 		description: {
 			display: "block",
 			padding: "0 20px",
+			color: theme.palette.text.secondary,
 			transition: theme.transitions.create([`all`], {
 				duration: theme.transitions.duration.complex
-			})
+			}),
+			[theme.breakpoints.down("sm")]: {
+				display: "none"
+			}
 		},
 
 		flex: {
@@ -119,17 +132,27 @@ const useStyles = theme => {
 			justifyContent: "space-evenly",
 			fontSize: "18px"
 		},
+		cardFooter: {
+			display: "flex",
+			justifyContent: "space-evenly",
+			fontSize: "18px",
+			[theme.breakpoints.down("sm")]: {
+				position: "absolute",
+				height: "100%",
+				width: "100%",
+				flexDirection: "column",
+				justifyContent: "space-evenly",
+				alignItems: "center"
+			}
+		},
 		dialog: {
 			minWidth: 500,
 			maxWidth: 600
 			// display: "flex"
 		},
-		main: {
-			// width: 200
-			flex: 1,
-			display: "flex",
-			justifyContent: "space-evenly",
-			alignItems: "center"
+		trailer: {
+			width: "100%",
+			height: "69vh"
 		},
 		dialogSection: {
 			flex: 1,
@@ -143,7 +166,10 @@ function List(props) {
 	if (!props.data.results || props.data.results.length < 1) {
 		return (
 			<div className={styles.root + " mrow"}>
-				<h1>waiting presentation {props.display}</h1>
+				<CircularProgress
+					// className={props.className.progress}
+					color="secondary"
+				/>
 			</div>
 		);
 	}
@@ -153,8 +179,9 @@ function List(props) {
 				{props.display}
 			</Typography>
 			<div className={styles.root + " mrow"}>
+				{/*  movie/tv shows arrey = props.data.result */}
 				{props.data.results.map(movie => (
-					<PoperContainer
+					<Card
 						movie={movie}
 						styles={styles}
 						{...props}
